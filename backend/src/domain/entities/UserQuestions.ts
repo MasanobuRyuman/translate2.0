@@ -1,13 +1,11 @@
 import { Entity,PrimaryColumn,Column } from "typeorm";
 
 @Entity()
-export class TestData {
+export class UserQuestions {
   @PrimaryColumn()
-  readonly id: number
+  id: number
   @Column()
-  JP: string
+  questionId : number
   @Column()
-  EN: string
-  @Column()
-  ClassID: string
+  classId : number
 }

@@ -8,9 +8,16 @@ export class QuestionRepository extends IQuestionRepository {
     super()
     this.DataSource = DataSource
   }
-  async find(id: number) {
+  async find(userId: number) {
     const userQuestions = new UserQuestions()
-    await this.DataSource.manager.find(userQuestions)
+    try {
+      let QuestionData = await this.DataSource.getRepository(UserQuestions).find({
+        relations: ["questionId"],
+      })
+      console.log(QuestionData)
+    } catch(error){
+      console.log(error)
+    }
   }
 
   async insert(id: number,EN: string,JP: string,classId: number){

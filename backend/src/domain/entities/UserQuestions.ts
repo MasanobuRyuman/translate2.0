@@ -1,13 +1,15 @@
-import { Entity,PrimaryColumn,Column ,OneToOne,JoinColumn} from "typeorm";
-import {Questions} from "./Questions";
+import { Entity,PrimaryGeneratedColumn,Column} from "typeorm";
 
 @Entity()
 export class UserQuestions {
   @Column()
-  id: number
-  @PrimaryColumn()
-  @OneToOne(() => Questions,questionId => questionId.questionId)
+  userId: number
+  @PrimaryGeneratedColumn()
   questionId : number
+  @Column()
+  EN:string
+  @Column()
+  JP: string
   @Column()
   classId : number
 }

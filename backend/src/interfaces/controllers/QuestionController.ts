@@ -23,9 +23,9 @@ export class QuestionController {
   }
 
   async createQuestion(req: any, res: any) {
-    const {id,EN,JP,classId}  = req.params
+    
     const useCase = new CreateQuestion(this.questionRepository)
-    let result = useCase.execute(id,EN,JP,classId)
+    let result = useCase.execute(2,"test","テスト",1)
     return result
   }
 

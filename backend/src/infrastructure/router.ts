@@ -36,7 +36,7 @@ app.get('/find/:id', async (req, res) => {
 
 app.get('/api/create/:id', async (req, res) => {
     const questionController = new QuestionController(AppDataSource)
-    let result = await questionController.findQuestion(req, res)
+    let result = await questionController.createQuestion(req, res)
 })
 
 app.get('/api/update/:id', async (req, res) => {

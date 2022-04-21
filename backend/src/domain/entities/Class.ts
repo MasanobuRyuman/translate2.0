@@ -4,6 +4,6 @@ import { Entity,PrimaryColumn,Column } from "typeorm"
 export class Class {
   @PrimaryColumn()
   ClassId: number
-  @Column()
+  @Column( {charset: "utf8" })
   ClassName: string
 }

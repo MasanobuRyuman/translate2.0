@@ -17,26 +17,32 @@ export class QuestionRepository extends IQuestionRepository {
         userId : userId
       })
       const classId = QuestionData[0].classId
-      const classData = await this.DataSource.getRepository(Class).find({
+      const ClassData = await this.DataSource.getRepository(Class).find({
         classId:classId,
       })
-      console.log(classData)
+      const data = {
+        QuestionData : QuestionData,
+        ClassData : ClassData
+      }
+
+      return(data)
     } catch(error){
       console.log(error)
     }
   }
 
   async insert(userId: number,EN: string,JP: string,classId: number){
-   try{
-     await this.DataSource.getRepository(UserQuestions).save({
-       userId : userId,
-       EN : EN,
-       JP : JP,
-       classId : classId,
-     })
-   }catch(error){
+    try{
+      let test = await this.DataSource.getRepository(UserQuestions).save({
+        userId : userId,
+        EN : EN,
+        JP : JP,
+        classId : classId,
+      })
+      console.log(test)
+    }catch(error){
      console.log(error)
-   }
+    }
   }
 
   async update(questionId: number,EN: string,JP: string,classId: number){

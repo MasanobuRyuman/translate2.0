@@ -3,11 +3,17 @@ services:
 
   mysql:
     image: "mysql:5.7.10"
+    container_name: backend-mysql-1
+    build: ./mysql/    #Dockerfileからビルドすることを示す
+    volumes:
+      - ./mysql/db:/docker-entrypoint-initdb.d  #初期データ
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: "admin"
-      MYSQL_USER: "test"
+      MYSQL_USER: "nobu"
       MYSQL_PASSWORD: "test"
-      MYSQL_DATABASE: "test"
+      MYSQL_DATABASE: "translate"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    
 

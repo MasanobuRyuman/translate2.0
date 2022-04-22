@@ -1,11 +1,16 @@
-import { Entity,PrimaryColumn,Column } from "typeorm";
+import { Entity,PrimaryGeneratedColumn,Column,ManyToOne} from "typeorm";
+import {Class} from "./Class";
 
 @Entity()
 export class UserQuestions {
-  @PrimaryColumn()
-  id: number
   @Column()
+  userId: number
+  @PrimaryGeneratedColumn()
   questionId : number
   @Column()
-  classId : number
+  EN:string
+  @Column()
+  JP: string
+  @ManyToOne(() => Class)
+  classId : Class
 }

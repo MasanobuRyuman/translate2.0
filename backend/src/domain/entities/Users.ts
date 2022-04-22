@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 export class Users {
 
     @PrimaryGeneratedColumn()
-    readonly id: number
+    readonly userId: number
 
     @Column()
     name: string

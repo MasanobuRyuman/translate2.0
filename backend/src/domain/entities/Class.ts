@@ -1,9 +1,12 @@
-import { Entity,PrimaryColumn,Column } from "typeorm"
+import { Entity,PrimaryColumn,Column,OneToMany } from "typeorm"
+import { UserQuestions } from "./UserQuestions";
 
 @Entity()
 export class Class {
   @PrimaryColumn()
-  ClassId: number
-  @Column()
-  ClassName: string
+  classId: number
+  @Column( {charset: "utf8" })
+  className: string
+  @OneToMany(() => UserQuestions, userQuestion => userQuestion.classId)
+  userQuestions: UserQuestions[];
 }

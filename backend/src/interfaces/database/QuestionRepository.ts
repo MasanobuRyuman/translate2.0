@@ -10,22 +10,17 @@ export class QuestionRepository extends IQuestionRepository {
     super()
     this.DataSource = DataSource
   }
-  async find(userId: number) {
+  async find(Id: number) {
     const userQuestions = new UserQuestions()
+    console.log(Id);
     try {
       const QuestionData = await this.DataSource.getRepository(UserQuestions).find({
-        userId : userId
+        relations: ['classId'], 
+        where: {
+          userId: Id
+        },
       })
-      const classId = QuestionData[0].classId
-      const ClassData = await this.DataSource.getRepository(Class).find({
-        classId:classId,
-      })
-      const data = {
-        QuestionData : QuestionData,
-        ClassData : ClassData
-      }
-
-      return(data)
+      return(QuestionData)
     } catch(error){
       console.log(error)
     }
@@ -39,7 +34,6 @@ export class QuestionRepository extends IQuestionRepository {
         JP : JP,
         classId : classId,
       })
-      console.log(test)
     }catch(error){
      console.log(error)
     }

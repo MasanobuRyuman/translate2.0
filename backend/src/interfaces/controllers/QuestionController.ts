@@ -32,14 +32,14 @@ export class QuestionController {
   async updateQuestion(req: any, res: any) {
     const {questionId,EN,JP,classId}  = req.params
     const useCase = new UpdateQuestion(this.questionRepository)
-    let result = useCase.execute(questionId,EN,JP,classId)
+    let result = useCase.execute(2,"test","テスト",2)
     return result
   }
 
   async deleteQuestion(req: any, res: any) {
     const {questionId}  = req.params
     const useCase = new DeleteQuestion(this.questionRepository)
-    let result = useCase.execute(questionId)
+    let result = useCase.execute(2)
     return result
   }
 

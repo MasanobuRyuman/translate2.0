@@ -1,4 +1,4 @@
-import {IQuestionRepository} from '../repositories/IQuestionRepository'
+import { IQuestionRepository } from '../repositories/IQuestionRepository'
 
 export class FindQuestion {
   private questionRepository: IQuestionRepository

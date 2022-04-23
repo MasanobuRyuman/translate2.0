@@ -1,4 +1,4 @@
-import {IQuestionRepository} from '../repositories/IQuestionRepository'
+import { IQuestionRepository } from '../repositories/IQuestionRepository'
 
 export class UpdateQuestion {
   private questionRepository: IQuestionRepository
@@ -7,7 +7,7 @@ export class UpdateQuestion {
     this.questionRepository = taskRepository
   }
 
-  execute(questionId: number,EN: string,JP: string,classId: number) {
-    this.questionRepository.update(questionId,EN,JP,classId)
+  execute(questionId: number, EN: string, JP: string, classId: number) {
+    this.questionRepository.update(questionId, EN, JP, classId)
   }
 }

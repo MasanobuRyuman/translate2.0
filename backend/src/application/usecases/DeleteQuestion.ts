@@ -1,4 +1,4 @@
-import {IQuestionRepository} from '../repositories/IQuestionRepository'
+import { IQuestionRepository } from '../repositories/IQuestionRepository'
 
 export class DeleteQuestion {
   private questionRepository: IQuestionRepository
@@ -7,7 +7,7 @@ export class DeleteQuestion {
     this.questionRepository = taskRepository
   }
 
-  execute(questionId : number) {
+  execute(questionId: number) {
     this.questionRepository.delete(questionId)
   }
 }

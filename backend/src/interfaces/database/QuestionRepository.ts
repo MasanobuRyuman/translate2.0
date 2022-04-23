@@ -1,7 +1,7 @@
-import { isDataView } from "util/types"
-import { IQuestionRepository } from "../../application/repositories/IQuestionRepository"
-import { Class } from "../../domain/entities/Class"
-import { UserQuestions } from "../../domain/entities/UserQuestions"
+import { isDataView } from 'util/types'
+import { IQuestionRepository } from '../../application/repositories/IQuestionRepository'
+import { Class } from '../../domain/entities/Class'
+import { UserQuestions } from '../../domain/entities/UserQuestions'
 
 export class QuestionRepository extends IQuestionRepository {
   private DataSource: any
@@ -12,44 +12,53 @@ export class QuestionRepository extends IQuestionRepository {
   }
   async find(Id: number) {
     const userQuestions = new UserQuestions()
-    console.log(Id);
+    console.log(Id)
     try {
-      const QuestionData = await this.DataSource.getRepository(UserQuestions).find({
-        relations: ['classId'], 
+      const QuestionData = await this.DataSource.getRepository(
+        UserQuestions
+      ).find({
+        relations: ['classId'],
         where: {
-          userId: Id
+          userId: Id,
         },
       })
-      return(QuestionData)
-    } catch(error){
+      console.log(QuestionData)
+      return QuestionData
+    } catch (error) {
       console.log(error)
     }
   }
 
-  async insert(userId: number,EN: string,JP: string,classId: number){
-    try{
+  async insert(userId: number, EN: string, JP: string, classId: number) {
+    try {
       let test = await this.DataSource.getRepository(UserQuestions).save({
-        userId : userId,
-        EN : EN,
-        JP : JP,
-        classId : classId,
+        userId: userId,
+        EN: EN,
+        JP: JP,
+        classId: classId,
       })
-    }catch(error){
-     console.log(error)
+      console.log(test)
+    } catch (error) {
+      console.log(error)
     }
   }
 
-  async update(questionId: number,EN: string,JP: string,classId: number){
+  async update(questionId: number, EN: string, JP: string, classId: number) {
     try {
-      await this.DataSource.getRepository(UserQuestions).update({questionId:questionId},{EN:EN,JP:JP,classId:classId})
-    }catch(error){
+      await this.DataSource.getRepository(UserQuestions).update(
+        { questionId: questionId },
+        { EN: EN, JP: JP, classId: classId }
+      )
+    } catch (error) {
       console.log(error)
     }
   }
   async delete(questionId: number) {
     try {
-      await this.DataSource.getRepository(UserQuestions).delete({questionId:questionId})
-    }catch(error){
+      await this.DataSource.getRepository(UserQuestions).delete({
+        questionId: questionId,
+      })
+    } catch (error) {
       console.log(error)
     }
   }

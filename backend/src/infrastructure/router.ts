@@ -2,6 +2,7 @@ import express = require('express')
 import { AppDataSource } from './data-source'
 import { Users } from '../domain/entities/Users'
 import { QuestionController } from '../interfaces/controllers/QuestionController'
+import { UserController } from '../interfaces/controllers/UserController'
 
 const app = express()
 const user = new Users()
@@ -28,6 +29,11 @@ app.listen(3000, () => {
 
 app.get('/', async (req, res) => {
   res.send('hello!')
+})
+
+app.get('/api/signUp',async(req,res) => {
+    const userController = new UserController(AppDataSource)
+    await userController.signUp(req,res)
 })
 
 app.get('/api/find/:id', async (req, res) => {

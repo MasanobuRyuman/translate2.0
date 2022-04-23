@@ -1,7 +1,7 @@
 import { Users } from '../../domain/entities/Users'
-import {IUserRepository} from './../../application/repositories/IUserRepository'
+import { IUserRepository } from './../../application/repositories/IUserRepository'
 
-export class UserRepository extends IUserRepository{
+export class UserRepository extends IUserRepository {
   private DataSource: any
 
   constructor(DataSource: any) {
@@ -11,28 +11,31 @@ export class UserRepository extends IUserRepository{
 
   async findUserByName(name: string): Promise<Users> {
     const userData = await this.DataSource.getRepository(Users).findOne({
-      where : {
-        name : name,
-      }
+      where: {
+        name: name,
+      },
     })
-    return(userData)
+    return userData
   }
 
-  async findUserByNameAndPassword(name: string, password: string): Promise<Users> {
+  async findUserByNameAndPassword(
+    name: string,
+    password: string
+  ): Promise<Users> {
     const userData = await this.DataSource.getRepository(Users).findOne({
-      where : {
-        name : name,
-        password : password
-      }
+      where: {
+        name: name,
+        password: password,
+      },
     })
-    return(userData)
+    return userData
   }
 
-  async createUser(name:string,password:string): Promise<Users> {
+  async createUser(name: string, password: string): Promise<Users> {
     const userData = await this.DataSource.getRepository(Users).save({
-      name:name,
-      password:password
+      name: name,
+      password: password,
     })
-    return(userData)
+    return userData
   }
 }

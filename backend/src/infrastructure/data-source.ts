@@ -4,8 +4,8 @@ import { Users } from '../domain/entities/Users'
 import { UserQuestions } from '../domain/entities/UserQuestions'
 import { Class } from '../domain/entities/Class'
 
-require('dotenv').config();
-const {username,password} = process.env
+require('dotenv').config()
+const { username, password } = process.env
 
 export const AppDataSource = new DataSource({
   type: 'mysql',

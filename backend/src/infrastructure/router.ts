@@ -31,9 +31,14 @@ app.get('/', async (req, res) => {
   res.send('hello!')
 })
 
-app.get('/api/signUp',async(req,res) => {
-    const userController = new UserController(AppDataSource)
-    await userController.signUp(req,res)
+app.get('/api/signUp', async (req, res) => {
+  const userController = new UserController(AppDataSource)
+  await userController.signUp(req, res)
+})
+
+app.get('/api/signIn', async (req, res) => {
+  const userController = new UserController(AppDataSource)
+  await userController.signIn(req, res)
 })
 
 app.get('/api/find/:id', async (req, res) => {

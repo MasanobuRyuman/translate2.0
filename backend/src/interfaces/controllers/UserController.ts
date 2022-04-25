@@ -1,6 +1,6 @@
 import { UserRepository } from '../database/UserRepository'
-import { SignUp } from '../../application/usecases/SignUp'
 import { SignIn } from '../../application/usecases/SignIn'
+import { SignUp } from '../../application/usecases/SignUp'
 
 export class UserController {
   private userRepository
@@ -8,15 +8,15 @@ export class UserController {
     this.userRepository = new UserRepository(dbConnection)
   }
 
-  async signUp(req: any, res: any) {
-    const useCase = new SignUp(this.userRepository)
-    let result = useCase.execute('のぶ', 'nnnnnn')
+  async signIn(name, password) {
+    const useCase = new SignIn(this.userRepository)
+    let result = useCase.execute(name, password)
     return result
   }
 
-  async signIn(req: any, res: any) {
-    const useCase = new SignIn(this.userRepository)
-    let result = useCase.execute('のぶ', 'nnnnnn')
+  async signUp(name, password) {
+    const useCase = new SignUp(this.userRepository)
+    let result = useCase.execute(name, password)
     return result
   }
 }

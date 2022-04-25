@@ -18,30 +18,27 @@ export class QuestionController {
     this.questionRepository = new QuestionRepository(dbConnection)
   }
 
-  async findQuestion(req: any, res: any) {
-    const { id } = req.params
+  async findQuestion(id) {
     const useCase = new FindQuestion(this.questionRepository)
     let result = useCase.execute(id)
     return result
   }
 
-  async createQuestion(req: any, res: any) {
+  async createQuestion(id: number, EN: string, JP: string, classId: number) {
     const useCase = new CreateQuestion(this.questionRepository)
-    let result = useCase.execute(2, 'test', 'テスト', 1)
+    let result = useCase.execute(id, EN, JP, classId)
     return result
   }
 
-  async updateQuestion(req: any, res: any) {
-    const { questionId, EN, JP, classId } = req.params
+  async updateQuestion(questionId, EN, JP, classId) {
     const useCase = new UpdateQuestion(this.questionRepository)
-    let result = useCase.execute(2, 'test', 'テスト', 2)
+    let result = useCase.execute(questionId, EN, JP, classId)
     return result
   }
 
-  async deleteQuestion(req: any, res: any) {
-    const { questionId } = req.params
+  async deleteQuestion(questionId) {
     const useCase = new DeleteQuestion(this.questionRepository)
-    let result = useCase.execute(2)
+    let result = useCase.execute(questionId)
     return result
   }
 }

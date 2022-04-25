@@ -31,32 +31,43 @@ app.get('/', async (req, res) => {
   res.send('hello!')
 })
 
-app.get('/api/signUp', async (req, res) => {
+app.post('/api/signUp/', async (req, res) => {
   const userController = new UserController(AppDataSource)
-  await userController.signUp(req, res)
+  const { name, password } = req.body()
+  await userController.signUp(name, password)
 })
 
-app.get('/api/signIn', async (req, res) => {
+app.post('/api/signIn/', async (req, res) => {
   const userController = new UserController(AppDataSource)
-  await userController.signIn(req, res)
+  const { name, password } = req.body
+  await userController.signIn(name, password)
 })
 
 app.get('/api/find/:id', async (req, res) => {
   const questionController = new QuestionController(AppDataSource)
-  let result = await questionController.findQuestion(req, res)
+  const { id } = req.params
+  let result = await questionController.findQuestion(id)
 })
 
-app.get('/api/create/:id', async (req, res) => {
+app.post('/api/create/', async (req) => {
   const questionController = new QuestionController(AppDataSource)
-  let result = await questionController.createQuestion(req, res)
+  const { id, EN, JP, classId } = req.body
+  let result = await questionController.createQuestion(id, EN, JP, classId)
 })
 
-app.get('/api/update/:id', async (req, res) => {
+app.post('/api/update/:id', async (req) => {
   const questionController = new QuestionController(AppDataSource)
-  let result = await questionController.updateQuestion(req, res)
+  const { questionId, EN, JP, classId } = req.body
+  let result = await questionController.updateQuestion(
+    questionId,
+    EN,
+    JP,
+    classId
+  )
 })
 
-app.get('/api/delete/:id', async (req, res) => {
+app.post('/api/delete/:id', async (req) => {
   const questionController = new QuestionController(AppDataSource)
-  let result = await questionController.deleteQuestion(req, res)
+  const { questionId } = req.body
+  let result = await questionController.deleteQuestion(questionId)
 })

@@ -1,5 +1,5 @@
-import { Users } from '../../domain/entities/Users'
 import { IUserRepository } from './../../application/repositories/IUserRepository'
+import { Users } from '../../domain/entities/Users'
 
 export class UserRepository extends IUserRepository {
   private DataSource: any

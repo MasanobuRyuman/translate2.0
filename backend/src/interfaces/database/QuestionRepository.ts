@@ -31,7 +31,7 @@ export class QuestionRepository extends IQuestionRepository {
 
   async insert(userId: number, EN: string, JP: string, classId: number) {
     try {
-      let test = await this.DataSource.getRepository(UserQuestions).save({
+      const test = await this.DataSource.getRepository(UserQuestions).save({
         userId: userId,
         EN: EN,
         JP: JP,

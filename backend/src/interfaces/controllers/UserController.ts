@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { UserRepository } from '../database/UserRepository'
 import { SignIn } from '../../application/usecases/SignIn'
 import { SignUp } from '../../application/usecases/SignUp'
@@ -10,13 +11,13 @@ export class UserController {
 
   async signIn(name, password) {
     const useCase = new SignIn(this.userRepository)
-    let result = useCase.execute(name, password)
+    const result = useCase.execute(name, password)
     return result
   }
 
   async signUp(name, password) {
     const useCase = new SignUp(this.userRepository)
-    let result = useCase.execute(name, password)
+    const result = useCase.execute(name, password)
     return result
   }
 }

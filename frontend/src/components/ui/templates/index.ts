@@ -1,0 +1,1 @@
+export {ContentTemplate} from './contentTemplate'

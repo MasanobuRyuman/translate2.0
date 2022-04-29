@@ -20,3 +20,4 @@ rules:
   import/order: [error, { ? cd
           alphabetize
         : { order: 'asc' } }]
+  no-unsafe-any: true

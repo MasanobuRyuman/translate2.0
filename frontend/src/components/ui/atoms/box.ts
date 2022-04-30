@@ -4,7 +4,7 @@ import { height } from '@mui/system'
 
 interface IDefaultBox {
   Width : number,
-  Height : number,
+  Height : number|string,
 }
 
 export const DefaultBox = styled(Box)(({Width,Height}:IDefaultBox)=>({

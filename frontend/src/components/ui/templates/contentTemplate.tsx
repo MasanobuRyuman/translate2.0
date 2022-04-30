@@ -1,26 +1,20 @@
 import React from 'react'
 
-import {ContentHeader, TranslateArea ,TestArea} from '../organisms'
+import { IClassQuestion } from '../../../pages/api/questions'
+import {TestArea,QuestionList} from '../molecules'
+import {ContentHeader, TranslateArea} from '../organisms'
 
-interface IQuestionData {
-  id : number,
-  questionId : number,
-  EN : string,
-  JP : string,
-  classId : number,
-  class : string,
+interface IContentTemplateProps {
+  questionData : IClassQuestion
 }
 
-interface IQuestion {
-  questionData:IQuestionData[]
-}
-
-export const ContentTemplate = (prop:IQuestion)=>{
+export const ContentTemplate = (props:IContentTemplateProps)=>{
   return(
     <div>
       <ContentHeader />
       <TranslateArea />
-      <TestArea questionData={prop.questionData}/>
+      <QuestionList questionData={props.questionData} />
+      <TestArea questionData={props.questionData}/>
     </div>
   )
 }

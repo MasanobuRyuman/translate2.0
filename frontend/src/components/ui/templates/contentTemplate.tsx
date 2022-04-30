@@ -2,7 +2,7 @@ import {Box} from '@mui/material'
 import React from 'react'
 
 import { IClassQuestion } from '../../../pages/api/questions'
-import {TestArea} from '../molecules'
+
 import {ClassQuestionList,ContentHeader,ContentPageSideArea,TranslateArea} from '../organisms'
 
 interface IContentTemplateProps {
@@ -20,7 +20,6 @@ export const ContentTemplate = (props:IContentTemplateProps)=>{
         <Box>
           <TranslateArea />
           <ClassQuestionList questionData={props.questionData} />
-          <TestArea questionData={props.questionData}/>
         </Box>
       </Box>
     </div>

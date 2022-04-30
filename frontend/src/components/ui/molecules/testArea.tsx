@@ -1,24 +1,12 @@
 import {Box} from '@mui/material'
 
-interface IQuestionFormat {
-  id : number,
-  questionId : number,
-  EN : string,
-  JP : string,
-  classId : number,
-  class : string,
-}
+import {IClassQuestion} from '../../../pages/api/questions'
 
-interface IClassQuestion {
-  classId_1:IQuestionFormat[]
-  classId_2:IQuestionFormat[]
-  classId_3:IQuestionFormat[]
-}
-interface IQuestionData {
+interface ITestAreaProps {
   questionData : IClassQuestion
 }
 
-export const TestArea = (props:IQuestionData) =>{
+export const TestArea = (props:ITestAreaProps) =>{
   return(
     <div>
       <p>test</p>

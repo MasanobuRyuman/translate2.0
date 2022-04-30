@@ -1,2 +1,2 @@
-export {TestArea} from './testArea' 
-export {QuestionList} from './questionList'
+export {TestArea} from './TestArea' 
+export {QuestionList} from './QuestionList'

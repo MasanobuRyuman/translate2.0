@@ -2,10 +2,10 @@ import Edit from '@mui/icons-material/Edit';
 import {Box} from '@mui/material'
 import { DataGrid, GridColDef} from '@mui/x-data-grid';
 
-import {IClassQuestion} from '../../../pages/api/questions'
+import {IQuestion} from '../../../pages/api/questions'
 
 interface IQuestionListProps{
-  questionData : IClassQuestion
+  questionData : IQuestion[]
 }
 
 export const QuestionList = (props:IQuestionListProps) =>{
@@ -32,7 +32,7 @@ export const QuestionList = (props:IQuestionListProps) =>{
       }}>
         <DataGrid
           getRowId={(row) => row.questionId}
-          rows={props.questionData.classId_1}
+          rows={props.questionData}
           columns={columns}
           pageSize={5}
         />

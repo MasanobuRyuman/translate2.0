@@ -1,6 +1,6 @@
 import axios from "axios";
 
-interface IQuestionFormat {
+export interface IQuestion {
   userId : number,
   questionId : number,
   EN : string,
@@ -10,9 +10,9 @@ interface IQuestionFormat {
 }
 
 export interface IClassQuestion {
-  classId_1:IQuestionFormat[]
-  classId_2:IQuestionFormat[]
-  classId_3:IQuestionFormat[]
+  classId_1:IQuestion[]
+  classId_2:IQuestion[]
+  classId_3:IQuestion[]
 }
 
 const tempQuestionData = {

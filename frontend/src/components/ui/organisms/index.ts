@@ -1,3 +1,4 @@
-export {ContentHeader} from './contentHeader'
-export {TranslateArea} from './translateArea'
-export {ClassQuestionList} from './classQuestionList'
+export {ContentHeader} from './ContentHeader'
+export {TranslateArea} from './TranslateArea'
+export {ClassQuestionList} from './ClassQuestionList'
+export {ContentPageSideArea} from './ContentPageSideArea'

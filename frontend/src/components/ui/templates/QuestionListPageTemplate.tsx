@@ -14,7 +14,7 @@ interface IContentTemplateProps {
   questionData: IClassQuestion
 }
 
-export const ContentTemplate = (props: IContentTemplateProps) => {
+export const QuestionListPageTemplate = (props: IContentTemplateProps) => {
   return (
     <div>
       <ContentHeader />
@@ -24,10 +24,10 @@ export const ContentTemplate = (props: IContentTemplateProps) => {
         }}
       >
         <ContentPageSideArea />
-        <Box>
-          <TranslateArea />
-          <ClassQuestionList questionData={props.questionData} />
-          <ClassTestArea questionData={props.questionData}/>
+        <Box sx={{
+          m : "auto",
+        }}>
+          <ClassQuestionList questionData={props.questionData}/>
         </Box>
       </Box>
     </div>

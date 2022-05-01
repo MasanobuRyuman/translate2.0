@@ -9,7 +9,7 @@ interface ITestAreaProps {
 }
 
 export const TestArea = (props:ITestAreaProps)=>{
-  const [questionData,setQuestionData] = useState<IQuestion>("")
+  const [questionData,setQuestionData] = useState<IQuestion>()
   const [question,setQuestion] = useState<string>("")
   const [answer,setAnswer] = useState<string>("")
   const [nowQuestionLanguage,setNowQuestionLanguage] = useState<string>("EN")

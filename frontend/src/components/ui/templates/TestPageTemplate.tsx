@@ -3,10 +3,8 @@ import React from 'react'
 
 import { IClassQuestion } from '../../../pages/api/questions'
 import {
-  ClassQuestionList,
   ContentHeader,
   ContentPageSideArea,
-  TranslateArea,
   ClassTestArea,
 } from '../organisms'
 
@@ -14,7 +12,7 @@ interface IContentTemplateProps {
   questionData: IClassQuestion
 }
 
-export const ContentTemplate = (props: IContentTemplateProps) => {
+export const TestPageTemplate = (props: IContentTemplateProps) => {
   return (
     <div>
       <ContentHeader />
@@ -24,9 +22,9 @@ export const ContentTemplate = (props: IContentTemplateProps) => {
         }}
       >
         <ContentPageSideArea />
-        <Box>
-          <TranslateArea />
-          <ClassQuestionList questionData={props.questionData} />
+        <Box sx={{
+          ml : 3,
+        }}>
           <ClassTestArea questionData={props.questionData}/>
         </Box>
       </Box>

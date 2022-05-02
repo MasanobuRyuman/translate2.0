@@ -1,5 +1,5 @@
 import axios from "axios";
-import Cors from 'cors'
+
 
 const axiosInstance = axios.create();
 

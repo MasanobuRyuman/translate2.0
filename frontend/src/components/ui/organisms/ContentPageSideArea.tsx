@@ -8,12 +8,24 @@ import {
   ListSubheader,
   ListItem,
   ListItemText,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from '@mui/material'
 import Link from 'next/link'
+import {useState} from 'react'
 
-import { DefaultBox, H4 } from '../atoms'
+import { DefaultBox,DefaultButton, H4 } from '../atoms'
 
 export const ContentPageSideArea = () => {
+  const [open, setOpen] = useState(false)
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+  const handleClose = () => {
+    setOpen(false)
+  }
   const test = () => {
     console.log('kita')
   }
@@ -59,12 +71,28 @@ export const ContentPageSideArea = () => {
                 <Link href="/test"><ListItemText onClick={() => test()} primary='テスト' /></Link>
               </ListItem>
               <ListItem button>
-                <ListItemText onClick={() => test()} primary='ログアウト' />
+                <ListItemText onClick={() => handleClickOpen()} primary='ログアウト' />
               </ListItem>
             </List>
           </Paper>
         </Box>
       </DefaultBox>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogContent>
+          <p>ログアウトしますか？</p>
+        </DialogContent>
+        <DialogActions>
+          <DefaultButton>ログアウト</DefaultButton>
+          <DefaultButton onClick={handleClose} autoFocus>
+            閉じる
+          </DefaultButton>
+        </DialogActions>
+      </Dialog>
     </div>
   )
 }

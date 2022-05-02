@@ -9,6 +9,7 @@ import {
   TranslateArea,
   ClassTestArea,
 } from '../organisms'
+import {ContentTemplate} from '../templates'
 
 interface IContentTemplateProps {
   questionData: IClassQuestion

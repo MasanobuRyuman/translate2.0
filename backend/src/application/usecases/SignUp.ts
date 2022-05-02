@@ -1,7 +1,7 @@
 import { IUserRepository } from '../repositories/IUserRepository'
 
 export class SignUp {
-  private userRepository
+  private userRepository: IUserRepository
   constructor(taskRepository: IUserRepository) {
     this.userRepository = taskRepository
   }

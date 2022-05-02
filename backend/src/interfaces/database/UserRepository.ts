@@ -32,10 +32,10 @@ export class UserRepository extends IUserRepository {
   }
 
   async createUser(name: string, password: string): Promise<Users> {
-    const userData = await this.DataSource.getRepository(Users).save({
-      name: name,
-      password: password,
-    })
+    const _user = new Users()
+    _user.name = name
+    _user.password = password
+    const userData = await this.DataSource.getRepository(Users).save(_user)
     return userData
   }
 }

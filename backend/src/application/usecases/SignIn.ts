@@ -7,7 +7,7 @@ export class SignIn {
   }
 
   async execute(name: string, password: string) {
-    let userData = await this.userRepository.findUserByNameAndPassword(
+    const userData = await this.userRepository.findUserByNameAndPassword(
       name,
       password
     )

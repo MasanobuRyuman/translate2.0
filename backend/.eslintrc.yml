@@ -4,8 +4,6 @@ env:
   es2021: true
 extends:
   - eslint:recommended
-  - plugin:react/recommended
-  - plugin:react-hooks/recommended
   - plugin:@typescript-eslint/recommended
   - plugin:@typescript-eslint/recommended-requiring-type-checking
   - prettier
@@ -19,11 +17,7 @@ plugins:
   - '@typescript-eslint'
 rules:
   react/react-in-jsx-scope: off
-  import/order: [
-    error,
-    {cd 
-      alphabetize: {
-        order: "asc"
-      }
-    }
-  ]
+  import/order: [error, { ? cd
+          alphabetize
+        : { order: 'asc' } }]
+  no-unsafe-any: true

@@ -5,8 +5,8 @@ import { englishTranslate } from '../../../pages/api/Translate'
 import { DefaultButton, DefaultTextArea, H4 } from '../atoms'
 
 interface ITranslateArea {
-  englishTranslate?: (EN: string) => Promise<{ result: any }>
-  japaneseTranslate?: (JP: string) => Promise<{ result: any }>
+  englishTranslate: (EN: string) => Promise<{ result: any }>
+  japaneseTranslate: (JP: string) => Promise<{ result: any }>
 }
 
 export const TranslateArea = (props: ITranslateArea) => {

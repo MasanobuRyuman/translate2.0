@@ -8,8 +8,8 @@ import {
 } from '../organisms'
 
 interface IContentTemplateProps {
-  englishTranslate?: (EN: any) => Promise<{ result: any }>
-  japaneseTranslate?: (JP: any) => Promise<{ result: any }>
+  englishTranslate: (EN: any) => Promise<{ result: any }>
+  japaneseTranslate: (JP: any) => Promise<{ result: any }>
 }
 
 export const TranslatePage = (props: IContentTemplateProps) => {

@@ -6,6 +6,11 @@ export const Logo = styled(Typography)({
   fontFamily: 'Noto Serif, serif',
 })
 
+export const H1 = styled(Typography)({
+  color: '#666666',
+  fontSize: 50,
+})
+
 export const H2 = styled(Typography)({
   color: '#666666',
   fontSize: 40,

@@ -4,7 +4,7 @@ import React from 'react'
 import { IClassQuestion } from '../../../pages/api/questions'
 import {
   ClassQuestionList,
-  ContentHeader,
+  PageHeader,
   ContentPageSideArea,
   TranslateArea,
   ClassTestArea,
@@ -17,7 +17,7 @@ interface IContentTemplateProps {
 export const ContentTemplate = (props: IContentTemplateProps) => {
   return (
     <div>
-      <ContentHeader />
+      <PageHeader />
       <Box
         sx={{
           display: 'flex',
@@ -27,7 +27,7 @@ export const ContentTemplate = (props: IContentTemplateProps) => {
         <Box>
           <TranslateArea />
           <ClassQuestionList questionData={props.questionData} />
-          <ClassTestArea questionData={props.questionData}/>
+          <ClassTestArea questionData={props.questionData} />
         </Box>
       </Box>
     </div>

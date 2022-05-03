@@ -4,12 +4,12 @@ import React from 'react'
 import { IClassQuestion } from '../../../pages/api/questions'
 import {
   ClassQuestionList,
-  ContentHeader,
+  PageHeader,
   ContentPageSideArea,
   TranslateArea,
   ClassTestArea,
 } from '../organisms'
-import {ContentTemplate} from '../templates'
+import { ContentTemplate } from '../templates'
 
 interface IContentTemplateProps {
   questionData: IClassQuestion
@@ -18,17 +18,19 @@ interface IContentTemplateProps {
 export const QuestionListPageTemplate = (props: IContentTemplateProps) => {
   return (
     <div>
-      <ContentHeader />
+      <PageHeader />
       <Box
         sx={{
           display: 'flex',
         }}
       >
         <ContentPageSideArea />
-        <Box sx={{
-          m : "auto",
-        }}>
-          <ClassQuestionList questionData={props.questionData}/>
+        <Box
+          sx={{
+            m: 'auto',
+          }}
+        >
+          <ClassQuestionList questionData={props.questionData} />
         </Box>
       </Box>
     </div>

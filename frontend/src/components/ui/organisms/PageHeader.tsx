@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 
 import { Header, Logo } from '../atoms'
 
-export const ContentHeader = () => {
+export const PageHeader = () => {
   return (
     <div>
       <Header>

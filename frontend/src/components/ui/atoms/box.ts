@@ -3,7 +3,7 @@ import { Box, styled } from '@mui/material'
 import { height } from '@mui/system'
 
 interface IDefaultBox {
-  Width: number
+  Width: number | string
   Height: number | string
 }
 

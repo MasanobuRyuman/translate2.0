@@ -14,9 +14,9 @@ import {
   DialogActions,
 } from '@mui/material'
 import Link from 'next/link'
-import {useState} from 'react'
+import { useState } from 'react'
 
-import { DefaultBox,DefaultButton, H4 } from '../atoms'
+import { DefaultBox, DefaultButton, H4 } from '../atoms'
 
 export const ContentPageSideArea = () => {
   const [open, setOpen] = useState(false)
@@ -62,13 +62,19 @@ export const ContentPageSideArea = () => {
               }
             >
               <ListItem button>
-                <Link href="/translate"><ListItemText onClick={() => test()} primary='翻訳' /></Link>
+                <Link href='/translate'>
+                  <ListItemText onClick={() => test()} primary='翻訳' />
+                </Link>
               </ListItem>
               <ListItem button>
-                <Link href="/questionList"><ListItemText onClick={() => test()} primary='問題一覧' /></Link>
+                <Link href='/questionList'>
+                  <ListItemText onClick={() => test()} primary='問題一覧' />
+                </Link>
               </ListItem>
               <ListItem button>
-                <Link href="/test"><ListItemText onClick={() => test()} primary='テスト' /></Link>
+                <Link href='/test'>
+                  <ListItemText onClick={() => test()} primary='テスト' />
+                </Link>
               </ListItem>
               <ListItem button>
                 <ListItemText onClick={() => handleClickOpen()} primary='ログアウト' />
@@ -80,8 +86,8 @@ export const ContentPageSideArea = () => {
       <Dialog
         open={open}
         onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='alert-dialog-description'
       >
         <DialogContent>
           <p>ログアウトしますか？</p>

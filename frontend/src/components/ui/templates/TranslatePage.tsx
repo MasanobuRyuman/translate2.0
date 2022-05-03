@@ -12,8 +12,8 @@ import {
 
 interface IContentTemplateProps {
   questionData: IClassQuestion
-  englishTranslate: (EN: any) => Promise<{ result: string }>
-  japaneseTranslate: (JP: any) => Promise<{ result: string }>
+  englishTranslate: (EN: any) => Promise<{ result: any }>
+  japaneseTranslate: (JP: any) => Promise<{ result: any }>
 }
 
 export const TranslatePage = (props: IContentTemplateProps) => {

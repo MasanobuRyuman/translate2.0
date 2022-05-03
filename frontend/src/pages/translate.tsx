@@ -10,7 +10,6 @@ const Translate: NextPage = () => {
   return (
     <div>
       <TranslatePage
-        questionData={QuestionData}
         englishTranslate={(EN) => englishTranslate(EN)}
         japaneseTranslate={(JP) => japaneseTranslate(JP)}
       />

@@ -6,8 +6,6 @@ import {
   ClassQuestionList,
   PageHeader,
   ContentPageSideArea,
-  TranslateArea,
-  ClassTestArea,
 } from '../organisms'
 
 interface IContentTemplateProps {

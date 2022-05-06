@@ -46,10 +46,11 @@ app.get('/api/find/:id', async (req, res) => {
   res.send(result)
 })
 
-app.post('/api/create/', async (req) => {
+app.post('/api/create/', async (req,res) => {
   const questionController = new QuestionController(AppDataSource)
   const { id, EN, JP, classId } = req.body
   const result = await questionController.createQuestion(id, EN, JP, classId)
+  res.send("kita")
 })
 
 app.post('/api/update/:id', async (req) => {

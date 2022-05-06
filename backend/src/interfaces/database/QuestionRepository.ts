@@ -12,7 +12,6 @@ export class QuestionRepository extends IQuestionRepository {
   }
   async find(Id: number) {
     const userQuestions = new UserQuestions()
-    console.log(Id)
     try {
       const QuestionData = await this.DataSource.getRepository(
         UserQuestions
@@ -22,7 +21,6 @@ export class QuestionRepository extends IQuestionRepository {
           userId: Id,
         },
       })
-      console.log(QuestionData)
       return QuestionData
     } catch (error) {
       console.log(error)

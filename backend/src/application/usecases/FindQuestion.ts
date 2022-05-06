@@ -7,7 +7,8 @@ export class FindQuestion {
     this.questionRepository = taskRepository
   }
 
-  execute(id: number) {
-    this.questionRepository.find(id)
+  async execute(id: number) {
+    const result = await this.questionRepository.find(id)
+    return result
   }
 }

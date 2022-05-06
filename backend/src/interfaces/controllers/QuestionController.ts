@@ -5,6 +5,7 @@ import { FindQuestion } from '../../application/usecases/FindQuestion'
 import { CreateQuestion } from '../../application/usecases/CreateQuestion'
 import { UpdateQuestion } from '../../application/usecases/UpdateQuestion'
 import { DeleteQuestion } from '../../application/usecases/DeleteQuestion'
+import { QuestionSerializer } from '../serializers/QestionsSerializer'
 import { Request, Response } from 'express-serve-static-core'
 import { ParsedQs } from 'qs'
 
@@ -22,8 +23,9 @@ export class QuestionController {
 
   async findQuestion(id) {
     const useCase = new FindQuestion(this.questionRepository)
-    const result = useCase.execute(id)
-    return result
+    const questionSerializer = new QuestionSerializer()
+    const result = await useCase.execute(id)
+    return (questionSerializer.serialize(result))
   }
 
   async createQuestion(id: number, EN: string, JP: string, classId: number) {

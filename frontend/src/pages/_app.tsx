@@ -3,8 +3,6 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
 import { SessionProvider } from 'next-auth/react';
 import { AppProps } from 'next/app'
-import Head from 'next/head'
-import PropTypes from 'prop-types'
 import * as React from 'react'
 import createEmotionCache from '../createEmotionCache'
 import theme from '../theme'

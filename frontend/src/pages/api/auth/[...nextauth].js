@@ -1,34 +1,37 @@
 import NextAuth from 'next-auth'
-import Providers from 'next-auth/providers'
+import CredentialsProvider from 'next-auth/providers/credentials'
+import GoogleProvider from 'next-auth/providers/google'
 
-// NextAuth.js関数に渡すオプション
+// NextAuth に渡すオプション
 const options = {
+  // 認証プロバイダー
   providers: [
-    Providers.Credentials({
+    CredentialsProvider({
+      name: 'ログイン',
       credentials: {
         username: { label: "Username", type: "text", placeholder: "jsmith" },
         password: {  label: "Password", type: "password" }
       },
-      // NextAuthの認証関数。credentialsにログイン情報が格納される。
-      authorize: async credentials => {
-        if (
-          // ログインID・パスワードは環境変数にて設定する。
-          credentials.login === process.env.NEXT_PUBLIC_LOGIN_ID &&
-          credentials.password === process.env.NEXT_PUBLIC_PASSWORD
-        ) {
-          // ログイン成功後ユーザー情報を返却する。値はsessionに格納される。
-          return Promise.resolve({ name: 'admin' })
-        } else {
-          // ログイン失敗後認証を拒否し、エラーメッセージを返却する。
-          return Promise.resolve(null)
-        }
+      async authorize(credentials, req) {
+        return ({
+          name:"test"
+        })
+      }
+    }),
+    CredentialsProvider({
+      name: '新規登録',
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: {  label: "Password", type: "password" }
       },
+      async authorize(credentials, req) {
+        return ({
+          name:"test"
+        })
+      }
     }),
   ],
-  // ログインページを指定する。今回はトップページのため'/'を指定。
-  pages: {
-    signIn: '/',
-  },
+  secret: process.env.AUTH_SECRET,
 }
 
 export default (req, res) => NextAuth(req, res, options)

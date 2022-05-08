@@ -3,7 +3,11 @@ import { Box } from '@mui/material'
 import { DefaultBox, DefaultButton, H2, TopPageLoginButton } from '../atoms'
 import { PageHeader, TopPageCatchCopy } from '../organisms'
 
-export const TopPageTemplate = () => {
+interface ITopPageTemplate {
+  signIn: any
+}
+
+export const TopPageTemplate = (props: ITopPageTemplate) => {
   return (
     <div>
       <PageHeader />
@@ -17,6 +21,7 @@ export const TopPageTemplate = () => {
         >
           <TopPageCatchCopy />
           <TopPageLoginButton
+            onClick={() => props.signIn()}
             sx={{
               display: 'block',
               m: 'auto',

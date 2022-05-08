@@ -1,7 +1,7 @@
 import { CacheProvider, EmotionCache } from '@emotion/react'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
-import { SessionProvider } from 'next-auth/react';
+import { SessionProvider } from 'next-auth/react'
 import { AppProps } from 'next/app'
 import * as React from 'react'
 import createEmotionCache from '../createEmotionCache'
@@ -15,8 +15,10 @@ interface MyAppProps extends AppProps {
 }
 
 function MyApp(props: MyAppProps) {
-  const {  Component,
-    pageProps: { session, ...pageProps }, } = props
+  const {
+    Component,
+    pageProps: { session, ...pageProps },
+  } = props
 
   return (
     <SessionProvider session={session}>

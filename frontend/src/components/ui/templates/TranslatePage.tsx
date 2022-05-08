@@ -1,11 +1,7 @@
 import { Box } from '@mui/material'
 import React from 'react'
 
-import {
-  PageHeader,
-  ContentPageSideArea,
-  TranslateArea,
-} from '../organisms'
+import { PageHeader, ContentPageSideArea, TranslateArea } from '../organisms'
 
 interface IContentTemplateProps {
   englishTranslate: (EN: any) => Promise<{ result: any }>

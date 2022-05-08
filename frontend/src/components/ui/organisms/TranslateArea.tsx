@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import React, { useState } from 'react'
-import { englishTranslate } from '../../../pages/api/Translate'
+
 
 import { DefaultButton, DefaultTextArea, H4 } from '../atoms'
 

@@ -19,6 +19,7 @@ AppDataSource.initialize()
   .catch((error) => console.log(error))
 
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
 app.use(passport.initialize())
 
 app.use(passport.initialize())
@@ -26,15 +27,16 @@ app.use(cookieParser());
 
 app.post('/api/signUp/', async (req:any, res) => {
   const userController = new UserController(AppDataSource)
-  const name = req.body.username
-  const password = req.body.password
-  const result = await userController.signUp(name, password)
+  const username = req.body.data.username
+  const password = req.body.data.password
+  const result = await userController.signUp(username, password)
   res.send(result)
 })
 
 app.post('/api/signIn/', async (req, res) => {
-  const {username,password} = req.body
   const userController = new UserController(AppDataSource)
+  const username = req.body.data.username
+  const password = req.body.data.password
   const result = await userController.signIn(username, password)
   res.send(result)
 })
@@ -48,14 +50,14 @@ app.get('/api/find/:id', async (req, res) => {
 
 app.post('/api/create/', async (req,res) => {
   const questionController = new QuestionController(AppDataSource)
-  const { id, EN, JP, classId } = req.body
+  const { id, EN, JP, classId } = req.body.data
   const result = await questionController.createQuestion(id, EN, JP, classId)
   res.send("kita")
 })
 
-app.post('/api/update/:id', async (req) => {
+app.post('/api/update/', async (req) => {
   const questionController = new QuestionController(AppDataSource)
-  const { questionId, EN, JP, classId } = req.body
+  const { questionId, EN, JP, classId } = req.body.data
   const result = await questionController.updateQuestion(
     questionId,
     EN,
@@ -66,10 +68,10 @@ app.post('/api/update/:id', async (req) => {
 
 app.post('/api/delete/:id', async (req) => {
   const questionController = new QuestionController(AppDataSource)
-  const { questionId } = req.body
+  const { questionId } = req.body.data
   const result = await questionController.deleteQuestion(questionId)
 })
 
-app.listen(3000, () => {
-  console.log('Start on port 3000.')
+app.listen(3001, () => {
+  console.log('Start on port 3001.')
 })

@@ -22,11 +22,11 @@ export class UserRepository extends IUserRepository {
     name: string,
     password: string
   ): Promise<Users> {
+    console.log(password)
     const userData = await this.DataSource.getRepository(Users).findOne({
-      where: {
-        name: name,
-        password: password,
-      },
+      where: [
+        {name: name,password: password}
+      ],
     })
     return userData
   }

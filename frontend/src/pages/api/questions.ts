@@ -17,25 +17,59 @@ export interface IClassQuestion {
 
 const tempQuestionData = {
   classId_1: [
-    { userId: 1, questionId: 2, EN: 'test', JP: 'テスト', classId: 2, class: 'わからない' },
-    { userId: 2, questionId: 1, EN: 'test3', JP: 'テスト', classId: 1, class: 'わからない' },
-    { userId: 3, questionId: 3, EN: 'test34', JP: 'テスト', classId: 3, class: 'わからない' },
-    { userId: 4, questionId: 4, EN: 'test4', JP: 'テスト', classId: 4, class: 'わからない' },
+    { userId: 1, questionId: 2, EN: 'test', JP: 'テスト', classId: 2, class: '分からない' },
+    { userId: 2, questionId: 1, EN: 'test3', JP: 'テスト', classId: 1, class: '分からない' },
+    { userId: 3, questionId: 3, EN: 'test34', JP: 'テスト', classId: 3, class: '分からない' },
+    { userId: 4, questionId: 4, EN: 'test4', JP: 'テスト', classId: 4, class: '分からない' },
   ],
   classId_2: [
-    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: 'わからない' },
-    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: 'わからない' },
-    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: 'わからない' },
-    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: 'わからない' },
+    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: '分からない' },
+    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: '分からない' },
+    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: '分からない' },
+    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: '分からない' },
   ],
   classId_3: [
-    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: 'わからない' },
-    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: 'わからない' },
-    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: 'わからない' },
-    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: 'わからない' },
+    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: '分からない' },
+    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: '分からない' },
+    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: '分からない' },
+    { userId: 1, questionId: 1, EN: 'test', JP: 'テスト', classId: 1, class: '分からない' },
   ],
+}
+
+interface IFetchQuestionData {
+  id : number
 }
 
 export const FetchQuestionData = () => {
   return tempQuestionData
+}
+
+interface ICreateQuestion {
+  id : number,
+  english:string,
+  japanese:string,
+  classId:number
+}
+
+export const CreateQuestion = async({id,english,japanese,classId}:ICreateQuestion) =>{
+  await  axios.post('http://localhost:3001/api/create',{data:{id:id,EN:english,JP:japanese,classId:classId}})
+}
+
+interface IUpdateQuestion {
+  questionId : number,
+  english:string,
+  japanese:string,
+  classId:number
+}
+
+export const UpdateQuestion = async({questionId,english,japanese,classId}:IUpdateQuestion)=>{
+  await  axios.post('http://localhost:3001/api/update',{data:{questionId:questionId,EN:english,JP:japanese,classId:classId}})
+}
+
+interface IDeleteQuestion {
+  questionId : number
+}
+
+export const DeleteQuestion = async({questionId}:IDeleteQuestion)=>{
+  await  axios.post('http://localhost:3001/api/delete',{data:{questionId:questionId}})
 }

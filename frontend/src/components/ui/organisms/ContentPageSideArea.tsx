@@ -15,6 +15,7 @@ import {
 } from '@mui/material'
 import Link from 'next/link'
 import { useState } from 'react'
+import { signOut } from 'next-auth/react'
 
 import { DefaultBox, DefaultButton, H4 } from '../atoms'
 
@@ -93,7 +94,7 @@ export const ContentPageSideArea = () => {
           <p>ログアウトしますか？</p>
         </DialogContent>
         <DialogActions>
-          <DefaultButton>ログアウト</DefaultButton>
+          <DefaultButton onClick={() => signOut()}>ログアウト</DefaultButton>
           <DefaultButton onClick={handleClose} autoFocus>
             閉じる
           </DefaultButton>

@@ -7,6 +7,7 @@ import { QuestionController } from '../interfaces/controllers/QuestionController
 import { UserController } from '../interfaces/controllers/UserController'
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const app = express()
 
@@ -24,6 +25,7 @@ app.use(passport.initialize())
 
 app.use(passport.initialize())
 app.use(cookieParser());
+app.use(cors())
 
 app.post('/api/signUp/', async (req:any, res) => {
   const userController = new UserController(AppDataSource)
@@ -50,9 +52,9 @@ app.get('/api/find/:id', async (req, res) => {
 
 app.post('/api/create/', async (req,res) => {
   const questionController = new QuestionController(AppDataSource)
-  const { id, EN, JP, classId } = req.body.data
-  const result = await questionController.createQuestion(id, EN, JP, classId)
-  res.send("kita")
+  const { userId, EN, JP, classId } = req.body.data
+  const result = await questionController.createQuestion(userId, EN, JP, classId)
+  res.send(result)
 })
 
 app.post('/api/update/', async (req) => {

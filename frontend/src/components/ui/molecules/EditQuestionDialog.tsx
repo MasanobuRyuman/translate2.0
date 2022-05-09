@@ -10,41 +10,41 @@ import {
   FormControl,
   Select,
   MenuItem,
-  SelectChangeEvent 
+  SelectChangeEvent,
 } from '@mui/material'
-import {useEffect,useState} from 'react'
+import { useEffect, useState } from 'react'
 
 interface IEditQuestionDialog {
   open: boolean
   setOpen: any
   english: string
   japanese: string
-  class : string
+  class: string
 }
 export const EditQuestionDialog = (props: IEditQuestionDialog) => {
-  const [en,setEn] = useState("") 
-  const [jp,setJp] = useState("")
-  const [questionClass,setQuestionClass] = useState("")
+  const [en, setEn] = useState('')
+  const [jp, setJp] = useState('')
+  const [questionClass, setQuestionClass] = useState('')
 
-  useEffect(()=>{
+  useEffect(() => {
     setEn(props.english)
     setJp(props.japanese)
     setQuestionClass(props.class)
     console.log(props.class)
-  },[props.open])
+  }, [props.open])
 
   const handleClose = (question: any) => {
     props.setOpen(false)
   }
 
-  const handleQuestionClassChange = (event: SelectChangeEvent)=>{
-    setQuestionClass(event.target.value as string);
+  const handleQuestionClassChange = (event: SelectChangeEvent) => {
+    setQuestionClass(event.target.value as string)
   }
 
-  const setEnglish = (e:any) => {
+  const setEnglish = (e: any) => {
     setEn(e?.currentTarget?.value)
   }
-  const setJapanese = (e:any) => {
+  const setJapanese = (e: any) => {
     setJp(e?.currentTarget?.value)
   }
   return (
@@ -78,19 +78,21 @@ export const EditQuestionDialog = (props: IEditQuestionDialog) => {
             }}
             value={jp}
           />
-          <Box sx={{
-            mt: 3,
-          }}>
+          <Box
+            sx={{
+              mt: 3,
+            }}
+          >
             <Typography>問題のクラス</Typography>
             <FormControl fullWidth>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
                 value={questionClass}
-                label="Age"
+                label='Age'
                 onChange={handleQuestionClassChange}
               >
-                <MenuItem value={"分からない"}>分からない</MenuItem>
+                <MenuItem value={'分からない'}>分からない</MenuItem>
                 <MenuItem value={20}>大体分かる</MenuItem>
                 <MenuItem value={30}>分かる</MenuItem>
               </Select>
@@ -98,12 +100,8 @@ export const EditQuestionDialog = (props: IEditQuestionDialog) => {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} >
-            更新
-          </Button>
-          <Button onClick={handleClose}>
-            閉じる
-          </Button>
+          <Button onClick={handleClose}>更新</Button>
+          <Button onClick={handleClose}>閉じる</Button>
         </DialogActions>
       </Dialog>
     </div>

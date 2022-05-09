@@ -1,12 +1,13 @@
 import { Box } from '@mui/material'
 import React, { useState } from 'react'
 
-
 import { DefaultButton, DefaultTextArea, H4 } from '../atoms'
+import { CreateQuestion } from '../../../pages/api/questions'
 
 interface ITranslateArea {
   englishTranslate: (EN: string) => Promise<{ result: any }>
   japaneseTranslate: (JP: string) => Promise<{ result: any }>
+  userId: number
 }
 
 export const TranslateArea = (props: ITranslateArea) => {
@@ -34,6 +35,20 @@ export const TranslateArea = (props: ITranslateArea) => {
 
   const setTranslateValue = (e: any) => {
     setTranslateAreaValue(e?.currentTarget?.value)
+  }
+
+  const saveQuestion = () => {
+    console.log('saveQuestion')
+    let english: string
+    let japanese: string
+    if (rightTranslateFiled == '英語') {
+      english = translateAreaValue
+      japanese = resultAreaValue
+    } else {
+      english = resultAreaValue
+      japanese = translateAreaValue
+    }
+    CreateQuestion(props.userId, english, japanese, 1)
   }
 
   return (
@@ -91,6 +106,7 @@ export const TranslateArea = (props: ITranslateArea) => {
         </DefaultButton>
         <DefaultButton onClick={() => translate()}>翻訳</DefaultButton>
         <DefaultButton
+          onClick={() => saveQuestion()}
           sx={{
             display: 'block',
             m: 'auto',

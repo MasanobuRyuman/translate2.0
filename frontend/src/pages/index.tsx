@@ -7,14 +7,12 @@ import { TopPageTemplate } from '../components/ui/templates'
 import { FetchQuestionData, IClassQuestion } from './api/questions'
 
 const Home: NextPage = () => {
-  const QuestionData: IClassQuestion = FetchQuestionData()
   const { data: session, status } = useSession()
   const router = useRouter()
   useEffect(() => {
     console.log(status)
     if (status === 'authenticated') {
-      console.log(session)
-      //router.push('/translate')
+      router.push('/translate')
     }
   }, [status])
   return (

@@ -51,12 +51,12 @@ const options = {
     jwt: async ({ token, user }) => {
       user && (token.user = user)
       return token
-  },
-  session: async ({ session, token }) => {
+    },
+    session: async ({ session, token }) => {
       session.user = token.user
       return session
-  }
-  }
+    },
+  },
 }
 
 export default (req, res) => NextAuth(req, res, options)

@@ -1,24 +1,33 @@
 import type { NextPage } from 'next'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect,useState } from 'react'
 
 import { TestPageTemplate } from '../components/ui/templates'
 import { FetchQuestionData, IClassQuestion } from './api/questions'
 
 const test: NextPage = () => {
-  const QuestionData: IClassQuestion = FetchQuestionData()
+  const [questionData, setQuestionData] = useState<IClassQuestion | undefined>()
   const { data: session, status } = useSession()
   const router = useRouter()
   useEffect(() => {
-    console.log(status)
     if (status === 'unauthenticated') {
       router.push('/')
+    } else if (status === 'authenticated') {
+      getQuestionData()
     }
   }, [status])
+
+  const getQuestionData = async () => {
+    const id = session?.user?.userId
+    const temp = await FetchQuestionData(id)
+    setQuestionData(temp)
+  }
   return (
     <div>
-      <TestPageTemplate questionData={QuestionData} />
+      {questionData &&
+        <TestPageTemplate questionData={questionData} />
+      }
     </div>
   )
 }

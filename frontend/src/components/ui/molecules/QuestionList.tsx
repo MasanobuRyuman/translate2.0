@@ -23,7 +23,7 @@ export const QuestionList = (props: IQuestionListProps) => {
   const [open, setOpen] = useState(false)
   const [english, setEnglish] = useState('')
   const [japanese, setJapanese] = useState('')
-  const [questionClass,setQuestionClass] = useState('')
+  const [questionClass, setQuestionClass] = useState('')
 
   useEffect(() => {
     console.log(open)
@@ -77,7 +77,7 @@ export const QuestionList = (props: IQuestionListProps) => {
         setOpen={(value: boolean) => setOpen(value)}
         english={english}
         japanese={japanese}
-        class = {questionClass}
+        class={questionClass}
       />
     </div>
   )

@@ -36,40 +36,46 @@ const tempQuestionData = {
   ],
 }
 
-interface IFetchQuestionData {
-  id : number
+export const FetchQuestionData = async (id: number) => {
+  const result = await axios.get(`http://localhost:3001/api/find/${id}`)
+  return result.data
 }
 
-export const FetchQuestionData = () => {
-  return tempQuestionData
-}
-
-interface ICreateQuestion {
-  id : number,
-  english:string,
-  japanese:string,
-  classId:number
-}
-
-export const CreateQuestion = async({id,english,japanese,classId}:ICreateQuestion) =>{
-  await  axios.post('http://localhost:3001/api/create',{data:{id:id,EN:english,JP:japanese,classId:classId}})
+export const CreateQuestion = async (
+  userId: number,
+  english: string,
+  japanese: string,
+  classId: number,
+) => {
+  console.log('hiatta')
+  const result = await axios.post('http://localhost:3001/api/create', {
+    data: { userId: userId, EN: english, JP: japanese, classId: classId },
+  })
+  console.log(result)
 }
 
 interface IUpdateQuestion {
-  questionId : number,
-  english:string,
-  japanese:string,
-  classId:number
+  questionId: number
+  english: string
+  japanese: string
+  classId: number
 }
 
-export const UpdateQuestion = async({questionId,english,japanese,classId}:IUpdateQuestion)=>{
-  await  axios.post('http://localhost:3001/api/update',{data:{questionId:questionId,EN:english,JP:japanese,classId:classId}})
+export const UpdateQuestion = async ({
+  questionId,
+  english,
+  japanese,
+  classId,
+}: IUpdateQuestion) => {
+  await axios.post('http://localhost:3001/api/update', {
+    data: { questionId: questionId, EN: english, JP: japanese, classId: classId },
+  })
 }
 
 interface IDeleteQuestion {
-  questionId : number
+  questionId: number
 }
 
-export const DeleteQuestion = async({questionId}:IDeleteQuestion)=>{
-  await  axios.post('http://localhost:3001/api/delete',{data:{questionId:questionId}})
+export const DeleteQuestion = async ({ questionId }: IDeleteQuestion) => {
+  await axios.post('http://localhost:3001/api/delete', { data: { questionId: questionId } })
 }

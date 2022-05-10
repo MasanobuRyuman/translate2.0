@@ -23,11 +23,7 @@ const questionList: NextPage = () => {
     const temp = await FetchQuestionData(id)
     setQuestionData(temp)
   }
-  return (
-    <div>
-      {questionData && <QuestionListPageTemplate questionData={questionData} />}
-    </div>
-  )
+  return <div>{questionData && <QuestionListPageTemplate questionData={questionData} />}</div>
 }
 
 export default questionList

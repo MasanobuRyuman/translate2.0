@@ -13,23 +13,42 @@ import {
   SelectChangeEvent,
 } from '@mui/material'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+
+import { DeleteQuestion } from '../../../pages/api/questions'
+import { UpdateQuestion } from '../../../pages/api/questions'
+
+interface IClassList {
+  [key: string]: number
+}
+
+const classList: IClassList = {
+  分からない: 1,
+  大体分かる: 2,
+  分かる: 3,
+}
 
 interface IEditQuestionDialog {
   open: boolean
   setOpen: any
+  questionId: number
   english: string
   japanese: string
   class: string
 }
+
 export const EditQuestionDialog = (props: IEditQuestionDialog) => {
   const [en, setEn] = useState('')
   const [jp, setJp] = useState('')
   const [questionClass, setQuestionClass] = useState('')
 
+  const router = useRouter()
+
   useEffect(() => {
     setEn(props.english)
     setJp(props.japanese)
     setQuestionClass(props.class)
+    console.log('kita')
     console.log(props.class)
   }, [props.open])
 
@@ -46,6 +65,18 @@ export const EditQuestionDialog = (props: IEditQuestionDialog) => {
   }
   const setJapanese = (e: any) => {
     setJp(e?.currentTarget?.value)
+  }
+
+  const updateQuestion = () => {
+    const questionType: keyof IClassList = questionClass
+    const classId = classList[questionType]
+    UpdateQuestion(props.questionId, en, jp, classId)
+    location.reload()
+  }
+
+  const deleteQuestion = () => {
+    DeleteQuestion(props.questionId)
+    location.reload()
   }
   return (
     <div>
@@ -93,14 +124,15 @@ export const EditQuestionDialog = (props: IEditQuestionDialog) => {
                 onChange={handleQuestionClassChange}
               >
                 <MenuItem value={'分からない'}>分からない</MenuItem>
-                <MenuItem value={20}>大体分かる</MenuItem>
-                <MenuItem value={30}>分かる</MenuItem>
+                <MenuItem value={'大体分かる'}>大体分かる</MenuItem>
+                <MenuItem value={'分かる'}>分かる</MenuItem>
               </Select>
             </FormControl>
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>更新</Button>
+          <Button onClick={() => updateQuestion()}>更新</Button>
+          <Button onClick={() => deleteQuestion()}>削除</Button>
           <Button onClick={handleClose}>閉じる</Button>
         </DialogActions>
       </Dialog>

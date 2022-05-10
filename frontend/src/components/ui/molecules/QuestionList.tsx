@@ -1,14 +1,5 @@
 import Edit from '@mui/icons-material/Edit'
-import {
-  Box,
-  Typography,
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  TextField,
-} from '@mui/material'
+import { Box } from '@mui/material'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import { useState, useEffect } from 'react'
 
@@ -21,23 +12,19 @@ interface IQuestionListProps {
 
 export const QuestionList = (props: IQuestionListProps) => {
   const [open, setOpen] = useState(false)
+  const [questionId, setQuestionId] = useState(0)
   const [english, setEnglish] = useState('')
   const [japanese, setJapanese] = useState('')
   const [questionClass, setQuestionClass] = useState('')
 
-  useEffect(() => {
-    console.log(open)
-  }, [open])
-
   const handleClickOpen = (question: any) => {
-    console.log(question.class)
+    setQuestionId(question.questionId)
     setEnglish(question.EN)
     setJapanese(question.JP)
-    setQuestionClass(question.class)
+    setQuestionClass(question.className)
     setOpen(true)
   }
   const handleClose = (question: any) => {
-    console.log(question)
     setOpen(false)
   }
 
@@ -75,6 +62,7 @@ export const QuestionList = (props: IQuestionListProps) => {
       <EditQuestionDialog
         open={open}
         setOpen={(value: boolean) => setOpen(value)}
+        questionId={questionId}
         english={english}
         japanese={japanese}
         class={questionClass}

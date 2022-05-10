@@ -68,9 +68,11 @@ app.post('/api/update/', async (req) => {
   )
 })
 
-app.post('/api/delete/:id', async (req) => {
+app.post('/api/delete', async (req) => {
   const questionController = new QuestionController(AppDataSource)
+  console.log("delete")
   const { questionId } = req.body.data
+  console.log(questionId)
   const result = await questionController.deleteQuestion(questionId)
 })
 

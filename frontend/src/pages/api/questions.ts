@@ -61,21 +61,19 @@ interface IUpdateQuestion {
   classId: number
 }
 
-export const UpdateQuestion = async ({
-  questionId,
-  english,
-  japanese,
-  classId,
-}: IUpdateQuestion) => {
+export const UpdateQuestion = async (
+  questionId: number,
+  english: string,
+  japanese: string,
+  classId: number,
+) => {
   await axios.post('http://localhost:3001/api/update', {
     data: { questionId: questionId, EN: english, JP: japanese, classId: classId },
   })
 }
 
-interface IDeleteQuestion {
-  questionId: number
-}
-
-export const DeleteQuestion = async ({ questionId }: IDeleteQuestion) => {
+export const DeleteQuestion = async (questionId: number) => {
+  console.log('deletequestion')
+  console.log(questionId)
   await axios.post('http://localhost:3001/api/delete', { data: { questionId: questionId } })
 }

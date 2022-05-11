@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 import { IUserRepository } from './../../application/repositories/IUserRepository'
 import { Users } from '../../domain/entities/Users'
 
@@ -22,19 +24,20 @@ export class UserRepository extends IUserRepository {
     name: string,
     password: string
   ): Promise<Users> {
-    console.log(password)
     const userData = await this.DataSource.getRepository(Users).findOne({
       where: [
-        {name: name,password: password}
+        {name: name}
       ],
     })
-    return userData
+    if (bcrypt.compareSync(password, userData.password)) return (userData.userId)
+    return null
   }
 
   async createUser(name: string, password: string): Promise<Users> {
+    let hashed_password = bcrypt.hashSync(password, 10);
     const _user = new Users()
     _user.name = name
-    _user.password = password
+    _user.password = hashed_password
     const userData = await this.DataSource.getRepository(Users).save(_user)
     return userData
   }

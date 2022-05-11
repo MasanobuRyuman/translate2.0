@@ -32,7 +32,7 @@ export const ContentPageSideArea = () => {
   }
   return (
     <div>
-      <DefaultBox Width={200} Height={500}>
+      <DefaultBox Width={300} Height={800}>
         <Box
           sx={{
             width: '80%',

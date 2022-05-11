@@ -16,13 +16,14 @@ export const TestArea = (props: ITestAreaProps) => {
 
   useEffect(() => {
     ChangeQuestion()
+    console.log(props.questionData)
   }, [])
 
   const ChangeQuestion = () => {
     const listLength: number = props.questionData.length
     const randomNumber = Math.floor(Math.random() * listLength)
     const nextQuestionData = props.questionData[randomNumber]
-    console.log(nowQuestionLanguage)
+    console.log(nextQuestionData)
     setQuestionData(nextQuestionData)
     if (nowQuestionLanguage == 'JP') {
       setQuestion(nextQuestionData.JP)

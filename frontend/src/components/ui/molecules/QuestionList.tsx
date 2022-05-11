@@ -48,8 +48,8 @@ export const QuestionList = (props: IQuestionListProps) => {
     <div>
       <Box
         sx={{
-          width: 500,
-          height: 400,
+          width: 700,
+          height: 500,
         }}
       >
         <DataGrid

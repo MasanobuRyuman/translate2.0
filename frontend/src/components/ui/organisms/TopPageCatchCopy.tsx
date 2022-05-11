@@ -17,7 +17,7 @@ export const TopPageCatchCopy = () => {
             color: '#4D90CE',
           }}
         >
-          #&nbsp;翻訳からその先へ
+          #&nbsp;翻訳から学習まで
         </H2>
         <Box>
           <Box

@@ -3,29 +3,18 @@ import React from 'react'
 
 import { IClassQuestion } from '../../../pages/api/questions'
 import { ClassQuestionList, PageHeader, ContentPageSideArea } from '../organisms'
+import { ContentPageTemplate } from './ContentPageTemplate'
 
-interface IContentTemplateProps {
+interface IQuestionPageTemplateProps {
   questionData: IClassQuestion
 }
 
-export const QuestionListPageTemplate = (props: IContentTemplateProps) => {
+export const QuestionListPageTemplate = (props: IQuestionPageTemplateProps) => {
   return (
     <div>
-      <PageHeader />
-      <Box
-        sx={{
-          display: 'flex',
-        }}
-      >
-        <ContentPageSideArea />
-        <Box
-          sx={{
-            m: 'auto',
-          }}
-        >
-          <ClassQuestionList questionData={props.questionData} />
-        </Box>
-      </Box>
+      <ContentPageTemplate>
+        <ClassQuestionList questionData={props.questionData} />
+      </ContentPageTemplate>
     </div>
   )
 }

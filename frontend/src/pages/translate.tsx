@@ -18,7 +18,7 @@ const Translate: NextPage = () => {
     if (status === 'unauthenticated') {
       router.push('/')
     } else if (status === 'authenticated') {
-      const id:any = session?.userData
+      const id: any = session?.userData
       setUserId(id)
     }
   }, [status])
@@ -26,8 +26,8 @@ const Translate: NextPage = () => {
   return (
     <div>
       <TranslatePageTemplate
-        englishTranslate={(EN:string) => englishTranslate(EN)}
-        japaneseTranslate={(JP:string) => japaneseTranslate(JP)}
+        englishTranslate={(EN: string) => englishTranslate(EN)}
+        japaneseTranslate={(JP: string) => japaneseTranslate(JP)}
         userId={userId}
       />
     </div>

@@ -19,7 +19,7 @@ const test: NextPage = () => {
   }, [status])
 
   const getQuestionData = async () => {
-    const id:any = session?.userData
+    const id: any = session?.userData
     const temp = await FetchQuestionData(id)
     setQuestionData(temp)
   }

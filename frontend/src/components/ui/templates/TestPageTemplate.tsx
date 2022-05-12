@@ -1,31 +1,17 @@
-import { Box } from '@mui/material'
-import React from 'react'
-
 import { IClassQuestion } from '../../../pages/api/questions'
-import { PageHeader, ContentPageSideArea, ClassTestArea } from '../organisms'
+import { ClassTestArea } from '../organisms'
+import { ContentPageTemplate } from './ContentPageTemplate'
 
-interface IContentTemplateProps {
+interface ITestPageTemplateProps {
   questionData: IClassQuestion
 }
 
-export const TestPageTemplate = (props: IContentTemplateProps) => {
+export const TestPageTemplate = (props: ITestPageTemplateProps) => {
   return (
     <div>
-      <PageHeader />
-      <Box
-        sx={{
-          display: 'flex',
-        }}
-      >
-        <ContentPageSideArea />
-        <Box
-          sx={{
-            ml: 3,
-          }}
-        >
-          <ClassTestArea questionData={props.questionData} />
-        </Box>
-      </Box>
+      <ContentPageTemplate>
+        <ClassTestArea questionData={props.questionData} />
+      </ContentPageTemplate>
     </div>
   )
 }

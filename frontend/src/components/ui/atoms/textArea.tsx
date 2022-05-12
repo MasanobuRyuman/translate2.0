@@ -5,8 +5,9 @@ interface IDefaultTextArea {
   Height: number
 }
 
-export const DefaultTextArea = styled('textarea')(({ Width, Height }: IDefaultTextArea) => ({
+export const DefaultTextArea = styled('textarea')({
+  display:"block",
   resize: 'none',
-  width: Width,
-  height: Height,
-}))
+  width: 300,
+  height: 200,
+})

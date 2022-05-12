@@ -7,7 +7,7 @@ export const englishTranslate = async (EN: string) => {
     free_api: true,
     text: EN,
     target_lang: 'JA',
-    auth_key: process.env.NEXT_PUBLIC_AUTH,
+    auth_key: process.env.NEXT_PUBLIC_DEEPL_AUTH,
   })
   return { result }
 }
@@ -17,7 +17,7 @@ export const japaneseTranslate = async (JP: string) => {
     free_api: true,
     text: JP,
     target_lang: 'EN',
-    auth_key: process.env.NEXT_PUBLIC_AUTH,
+    auth_key: process.env.NEXT_PUBLIC_DEEPL_AUTH,
   })
   return { result }
 }

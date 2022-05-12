@@ -24,18 +24,15 @@ export const QuestionList = (props: IQuestionListProps) => {
     setQuestionClass(question.className)
     setOpen(true)
   }
-  const handleClose = (question: any) => {
-    setOpen(false)
-  }
 
   const columns: GridColDef[] = [
-    { field: 'EN', headerName: '英語', width: 200 },
-    { field: 'JP', headerName: '日本語', width: 200 },
+    { field: 'EN', headerName: '英語', flex: 1 },
+    { field: 'JP', headerName: '日本語', flex: 1  },
     {
       field: 'editBtn',
-      headerName: '詳細',
+      headerName: '編集',
       sortable: false,
-      width: 60,
+      width: 65,
       renderCell: (params) => (
         <button onClick={() => handleClickOpen(params.row)}>
           <Edit />
@@ -48,8 +45,12 @@ export const QuestionList = (props: IQuestionListProps) => {
     <div>
       <Box
         sx={{
-          width: 500,
-          height: 400,
+          width: {
+            lg:800,
+            md: 600,
+            sm: 600
+          },
+          height: 500,
         }}
       >
         <DataGrid

@@ -1,37 +1,24 @@
-import { Box } from '@mui/material'
 import React from 'react'
 
-import { PageHeader, ContentPageSideArea, TranslateArea } from '../organisms'
+import { TranslateArea } from '../organisms'
+import { ContentPageTemplate } from './ContentPageTemplate'
 
-interface IContentTemplateProps {
+interface ITranslatePageTemplateProps {
   englishTranslate: (EN: any) => Promise<{ result: any }>
   japaneseTranslate: (JP: any) => Promise<{ result: any }>
   userId: number
 }
 
-export const TranslatePageTemplate = (props: IContentTemplateProps) => {
+export const TranslatePageTemplate = (props: ITranslatePageTemplateProps) => {
   return (
     <div>
-      <PageHeader />
-      <Box
-        sx={{
-          display: 'flex',
-        }}
-      >
-        <ContentPageSideArea />
-        <Box
-          sx={{
-            m: 'auto',
-            mt: 5,
-          }}
-        >
-          <TranslateArea
-            englishTranslate={(EN) => props.englishTranslate(EN)}
-            japaneseTranslate={(JP) => props.japaneseTranslate(JP)}
-            userId={props.userId}
-          />
-        </Box>
-      </Box>
+      <ContentPageTemplate>
+        <TranslateArea
+          englishTranslate={(EN) => props.englishTranslate(EN)}
+          japaneseTranslate={(JP) => props.japaneseTranslate(JP)}
+          userId={props.userId}
+        />
+      </ContentPageTemplate>
     </div>
   )
 }

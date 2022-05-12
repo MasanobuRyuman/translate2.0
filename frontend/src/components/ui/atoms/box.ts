@@ -7,8 +7,8 @@ interface IDefaultBox {
   Height: number | string
 }
 
-export const DefaultBox = styled(Box)(({ Width, Height }: IDefaultBox) => ({
+export const DefaultBox = styled(Box)({
   backgroundColor: '#D4E7F9',
-  height: Height,
-  width: Width,
-}))
+  height: 300,
+  width: 300,
+})

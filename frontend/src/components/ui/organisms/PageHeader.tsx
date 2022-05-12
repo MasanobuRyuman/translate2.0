@@ -9,6 +9,7 @@ export const PageHeader = () => {
         <Logo
           sx={{
             textAlign: 'center',
+            pt: -1,
           }}
         >
           Translate2.0

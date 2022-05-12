@@ -1,24 +1,28 @@
 import CheckIcon from '@mui/icons-material/Check'
 import { Box } from '@mui/material'
 
-import { H2, H3 } from '../atoms'
+import { H1, H3 } from '../atoms'
 
 export const TopPageCatchCopy = () => {
   return (
     <div>
       <Box
         sx={{
-          width: 600,
+          width: {
+            sm : 600,
+            xs : 300,
+          },
           m: 'auto',
         }}
       >
-        <H2
+        <H1
           sx={{
             color: '#4D90CE',
+            textAlign: "center",
           }}
         >
-          #&nbsp;翻訳からその先へ
-        </H2>
+         翻訳 ✖️ 学習
+        </H1>
         <Box>
           <Box
             sx={{

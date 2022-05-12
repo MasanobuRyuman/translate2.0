@@ -3,9 +3,7 @@ import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
 
-// NextAuth に渡すオプション
 const options = {
-  // 認証プロバイダー
   providers: [
     CredentialsProvider({
       id: 'signIn',
@@ -20,10 +18,10 @@ const options = {
         const result = await axios.post('http://localhost:3001/api/signIn', {
           data: { username: username, password: password },
         })
-        console.log(result.data.userData)
         if (result.data.success == true) {
           return result.data.userData
         }
+        return null
       },
     }),
     CredentialsProvider({
@@ -53,7 +51,7 @@ const options = {
       return token
     },
     session: async ({ session, token }) => {
-      session.user = token.user
+      session.userData = token.user
       return session
     },
   },

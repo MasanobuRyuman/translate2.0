@@ -55,16 +55,31 @@ export const TranslateArea = (props: ITranslateArea) => {
     <div>
       <Box
         sx={{
-          width: 700,
-          height: 400,
+          width: {
+            lg: 900,
+            md: 700,
+            sm: 450,
+          },
         }}
       >
-        <Box
+        <DefaultButton
+          onClick={() => ChangeTranslate()}
           sx={{
-            display: 'flex',
+            display: 'block',
+            m: 'auto',
           }}
         >
-          <Box sx={{}}>
+          入れ替え
+        </DefaultButton>
+        <Box
+          sx={{
+            display: {
+              sm : 'flex',
+              xs : "block",
+            }
+          }}
+        >
+          <Box>
             <H4
               sx={{
                 textAlign: 'center',
@@ -75,8 +90,18 @@ export const TranslateArea = (props: ITranslateArea) => {
             <DefaultTextArea
               value={translateAreaValue}
               onChange={(e) => setTranslateValue(e)}
-              Width={300}
-              Height={200}
+              sx={{
+                width: {
+                  lg: 400,
+                  md: 270,
+                  xs: 200,
+                },
+                height: {
+                  lg: 200,
+                  xs: 150,
+                },
+                m:"auto",
+              }}
             />
           </Box>
           <Box
@@ -92,19 +117,34 @@ export const TranslateArea = (props: ITranslateArea) => {
             >
               {leftTranslateFiled}
             </H4>
-            <DefaultTextArea value={resultAreaValue} Width={300} Height={200} />
+            <DefaultTextArea
+              value={resultAreaValue}
+              sx={{
+                width: {
+                  lg: 400,
+                  md: 270,
+                  xs: 200,
+                },
+                height: {
+                  lg: 200,
+                  xs: 150,
+                },
+                m : "auto",
+              }}
+            />
           </Box>
         </Box>
+
         <DefaultButton
-          onClick={() => ChangeTranslate()}
+          onClick={() => translate()}
           sx={{
             display: 'block',
             m: 'auto',
+            mt: 2,
           }}
         >
-          入れ替え
+          翻訳
         </DefaultButton>
-        <DefaultButton onClick={() => translate()}>翻訳</DefaultButton>
         <DefaultButton
           onClick={() => saveQuestion()}
           sx={{

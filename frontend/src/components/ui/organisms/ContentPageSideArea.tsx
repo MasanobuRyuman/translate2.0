@@ -1,9 +1,8 @@
-/* eslint-disable @next/next/link-passhref */
 import {
   Box,
   Paper,
+  Menu,
   MenuItem,
-  MenuList,
   List,
   ListSubheader,
   ListItem,
@@ -21,21 +20,41 @@ import { DefaultBox, DefaultButton, H4 } from '../atoms'
 
 export const ContentPageSideArea = () => {
   const [open, setOpen] = useState(false)
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const buttonMenuOpen = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const buttonMenuHandleClose = () => {
+    setAnchorEl(null);
+  };
+  
   const handleClickOpen = () => {
     setOpen(true)
   }
   const handleClose = () => {
     setOpen(false)
   }
-  const test = () => {
-    console.log('kita')
-  }
+
   return (
     <div>
-      <DefaultBox Width={200} Height={500}>
+      <DefaultBox
+        sx={{
+          width: {
+            lg: 300,
+            md: 200,
+            sm: 125,
+          },
+          height: '100vh',
+          display: {
+            sm : "block",
+            xs : "none"
+          }
+        }}
+      >
         <Box
           sx={{
-            width: '80%',
+            width: '90%',
             m: 'auto',
             pt: 3,
           }}
@@ -64,17 +83,17 @@ export const ContentPageSideArea = () => {
             >
               <ListItem button>
                 <Link href='/translate'>
-                  <ListItemText onClick={() => test()} primary='翻訳' />
+                  <ListItemText primary='翻訳' />
                 </Link>
               </ListItem>
               <ListItem button>
                 <Link href='/questionList'>
-                  <ListItemText onClick={() => test()} primary='問題一覧' />
+                  <ListItemText primary='問題一覧' />
                 </Link>
               </ListItem>
               <ListItem button>
                 <Link href='/test'>
-                  <ListItemText onClick={() => test()} primary='テスト' />
+                  <ListItemText primary='テスト' />
                 </Link>
               </ListItem>
               <ListItem button>
@@ -83,23 +102,75 @@ export const ContentPageSideArea = () => {
             </List>
           </Paper>
         </Box>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby='alert-dialog-title'
+          aria-describedby='alert-dialog-description'
+        >
+          <DialogContent>
+            <p>ログアウトしますか？</p>
+          </DialogContent>
+          <DialogActions>
+            <DefaultButton onClick={() => signOut()}>ログアウト</DefaultButton>
+            <DefaultButton onClick={handleClose} autoFocus>
+              閉じる
+            </DefaultButton>
+          </DialogActions>
+        </Dialog>
       </DefaultBox>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby='alert-dialog-title'
-        aria-describedby='alert-dialog-description'
-      >
-        <DialogContent>
-          <p>ログアウトしますか？</p>
-        </DialogContent>
-        <DialogActions>
-          <DefaultButton onClick={() => signOut()}>ログアウト</DefaultButton>
-          <DefaultButton onClick={handleClose} autoFocus>
-            閉じる
-          </DefaultButton>
-        </DialogActions>
-      </Dialog>
+      <div>
+        <DefaultButton
+          id="basic-button"
+          aria-controls={buttonMenuOpen ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={buttonMenuOpen ? 'true' : undefined}
+          onClick={handleClick}
+          sx={{
+            display: {
+              sm : "none",
+              xs : "inline",
+            },
+            mt: 1,
+            ml: 3,
+          }}
+        >
+          メニュー
+        </DefaultButton>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={buttonMenuOpen}
+          onClose={buttonMenuHandleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}
+        >
+          <List
+              component='nav'
+              aria-labelledby='nested-list-subheader'
+          >
+            <ListItem button>
+              <Link href='/translate'>
+                <ListItemText primary='翻訳' />
+              </Link>
+            </ListItem>
+            <ListItem button>
+              <Link href='/questionList'>
+                <ListItemText primary='問題一覧' />
+              </Link>
+            </ListItem>
+            <ListItem button>
+              <Link href='/test'>
+                <ListItemText primary='テスト' />
+              </Link>
+            </ListItem>
+            <ListItem button>
+              <ListItemText onClick={() => handleClickOpen()} primary='ログアウト' />
+            </ListItem>
+          </List>
+        </Menu>
+      </div>
     </div>
   )
 }

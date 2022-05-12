@@ -29,11 +29,14 @@ export class UserRepository extends IUserRepository {
         {name: name}
       ],
     })
-    if (bcrypt.compareSync(password, userData.password)) return (userData.userId)
+    if (userData != null){
+      if (bcrypt.compareSync(password, userData.password)) return (userData.userId)
+    }
     return null
   }
 
   async createUser(name: string, password: string): Promise<Users> {
+    console.log(password)
     let hashed_password = bcrypt.hashSync(password, 10);
     const _user = new Users()
     _user.name = name

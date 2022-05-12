@@ -11,12 +11,15 @@ export const TopPageTemplate = (props: ITopPageTemplate) => {
   return (
     <div>
       <PageHeader />
-      <DefaultBox Width='100%' Height='100vh'>
+      <DefaultBox sx={{
+        width: "100%",
+        height: "100vh",
+      }}>
         <Box
           sx={{
             width: '80%',
             m: 'auto',
-            pt: 5,
+            pt: 8,
           }}
         >
           <TopPageCatchCopy />

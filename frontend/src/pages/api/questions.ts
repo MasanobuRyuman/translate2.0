@@ -6,7 +6,7 @@ export interface IQuestion {
   EN: string
   JP: string
   classId: number
-  class: string
+  className: string
 }
 
 export interface IClassQuestion {

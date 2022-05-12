@@ -24,9 +24,6 @@ export const QuestionList = (props: IQuestionListProps) => {
     setQuestionClass(question.className)
     setOpen(true)
   }
-  const handleClose = (question: any) => {
-    setOpen(false)
-  }
 
   const columns: GridColDef[] = [
     { field: 'EN', headerName: '英語', flex: 1 },

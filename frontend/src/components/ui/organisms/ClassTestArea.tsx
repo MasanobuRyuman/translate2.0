@@ -19,7 +19,16 @@ export const ClassTestArea = (props: ClassTestAreaProps) => {
   }
   return (
     <div>
-      <Box>
+      <Box sx={{
+        width : {
+          lg:800,
+          md: 600,
+          sm : 400,
+          xs : 300,
+        },
+        height : 600,
+        m:"auto"
+      }}>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <TabList onChange={handleChange} aria-label='lab API tabs example'>

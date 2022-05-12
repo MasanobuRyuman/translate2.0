@@ -44,7 +44,7 @@ const options = {
       },
     }),
   ],
-  secret: process.env.NEXTAUTH_URL,
+  secret: process.env.NEXT_PUBLIC_AUTH_SECRET,
   callbacks: {
     jwt: async ({ token, user }) => {
       user && (token.user = user)

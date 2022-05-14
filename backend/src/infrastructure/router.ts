@@ -76,6 +76,6 @@ app.post('/api/delete', async (req) => {
   const result = await questionController.deleteQuestion(questionId)
 })
 
-app.listen(process.env.PORT || 8000), () => {
+app.listen(process.env.PORT || 8000, () => {
   console.log('Start on port 3001.')
 })

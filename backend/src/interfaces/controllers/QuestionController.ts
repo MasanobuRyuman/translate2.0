@@ -6,16 +6,8 @@ import { CreateQuestion } from '../../application/usecases/CreateQuestion'
 import { UpdateQuestion } from '../../application/usecases/UpdateQuestion'
 import { DeleteQuestion } from '../../application/usecases/DeleteQuestion'
 import { QuestionSerializer } from '../serializers/QestionsSerializer'
-import { Request, Response } from 'express-serve-static-core'
-import { ParsedQs } from 'qs'
 
 export class QuestionController {
-  static findQuestion(
-    req: Request<{}, any, any, ParsedQs, Record<string, any>>,
-    res: Response<any, Record<string, any>, number>
-  ) {
-    throw new Error('Method not implemented.')
-  }
   private questionRepository
   constructor(dbConnection: any) {
     this.questionRepository = new QuestionRepository(dbConnection)

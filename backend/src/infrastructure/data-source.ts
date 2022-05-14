@@ -8,14 +8,13 @@ import { UserQuestions } from '../domain/entities/UserQuestions'
 import { Class } from '../domain/entities/Class'
 
 require('dotenv').config()
-const { username, password } = process.env
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
   host: 'localhost',
   port: 3306,
-  username: username,
-  password: password,
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
   database: 'translate',
   synchronize: true,
   logging: false,

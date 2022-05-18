@@ -42,6 +42,6 @@ export class UserRepository extends IUserRepository {
     _user.name = name
     _user.password = hashed_password
     const userData = await this.DataSource.getRepository(Users).save(_user)
-    return userData
+    return userData.userId
   }
 }

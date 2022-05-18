@@ -5,7 +5,6 @@ import 'reflect-metadata'
 import { DataSource } from 'typeorm'
 import { Users } from '../domain/entities/Users'
 import { UserQuestions } from '../domain/entities/UserQuestions'
-import { Class } from '../domain/entities/Class'
 
 require('dotenv').config()
 
@@ -18,7 +17,7 @@ export const AppDataSource = new DataSource({
   database: 'translate',
   synchronize: true,
   logging: false,
-  entities: [Users, UserQuestions, Class],
+  entities: [Users, UserQuestions],
   migrations: [],
   subscribers: [],
 })

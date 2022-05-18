@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
-import { Class } from './Class'
 
 @Entity()
 export class UserQuestions {
@@ -11,6 +10,6 @@ export class UserQuestions {
   EN: string
   @Column()
   JP: string
-  @ManyToOne(() => Class)
-  classId: Class
+  @Column()
+  classId: number
 }

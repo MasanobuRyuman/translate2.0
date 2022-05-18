@@ -3,6 +3,8 @@ import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
 
+const apiURL = "http://translatestudy.herokuapp.com"
+
 const options = {
   providers: [
     CredentialsProvider({
@@ -15,7 +17,7 @@ const options = {
       async authorize(credentials, req) {
         const username = credentials.username
         const password = credentials.password
-        const result = await axios.post('http://localhost:3001/api/signIn', {
+        const result = await axios.post(`${apiURL}/api/signIn`, {
           data: { username: username, password: password },
         })
         if (result.data.success == true) {
@@ -34,7 +36,7 @@ const options = {
       async authorize(credentials, req) {
         const username = credentials.username
         const password = credentials.password
-        const result = await axios.post('http://localhost:3001/api/signUp', {
+        const result = await axios.post(`${apiURL}/api/signUp`, {
           data: { username: username, password: password },
         })
         if (result.data.success == true) {

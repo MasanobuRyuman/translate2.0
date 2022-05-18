@@ -3,7 +3,6 @@ import {
   Typography,
   Button,
   Dialog,
-  DialogTitle,
   DialogContent,
   DialogActions,
   TextField,
@@ -13,7 +12,6 @@ import {
   SelectChangeEvent,
 } from '@mui/material'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 
 import { DeleteQuestion } from '../../../pages/api/questions'
 import { UpdateQuestion } from '../../../pages/api/questions'
@@ -42,14 +40,11 @@ export const EditQuestionDialog = (props: IEditQuestionDialog) => {
   const [jp, setJp] = useState('')
   const [questionClass, setQuestionClass] = useState('')
 
-  const router = useRouter()
 
   useEffect(() => {
     setEn(props.english)
     setJp(props.japanese)
     setQuestionClass(props.class)
-    console.log('kita')
-    console.log(props.class)
   }, [props.open])
 
   const handleClose = (question: any) => {

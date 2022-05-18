@@ -1,6 +1,4 @@
-import { isDataView } from 'util/types'
 import { IQuestionRepository } from '../../application/repositories/IQuestionRepository'
-import { Class } from '../../domain/entities/Class'
 import { UserQuestions } from '../../domain/entities/UserQuestions'
 
 export class QuestionRepository extends IQuestionRepository {
@@ -11,12 +9,10 @@ export class QuestionRepository extends IQuestionRepository {
     this.DataSource = DataSource
   }
   async find(Id: number) {
-    const userQuestions = new UserQuestions()
     try {
       const QuestionData = await this.DataSource.getRepository(
         UserQuestions
       ).find({
-        relations: ['classId'],
         where: {
           userId: Id,
         },

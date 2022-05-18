@@ -28,6 +28,8 @@ app.use(cookieParser());
 app.use(cors())
 
 app.post('/api/signUp/', async (req:any, res) => {
+  console.log("signUpに入った")
+  console.log(req.body.data.username)
   const userController = new UserController(AppDataSource)
   const username = req.body.data.username
   const password = req.body.data.password

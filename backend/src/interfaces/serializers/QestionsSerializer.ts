@@ -1,3 +1,5 @@
+import {IFindQuestion} from '../../application/repositories/IQuestionRepository'
+
 interface IClassList {
   [key: number]: string
 }
@@ -8,7 +10,7 @@ const classList: IClassList = {
   3:"分かる",
 }
 export class QuestionSerializer {
-  serialize(data:any){
+  serialize(data:IFindQuestion[]){
     let class1Questions = []
     let class2Questions = []
     let class3Questions = []

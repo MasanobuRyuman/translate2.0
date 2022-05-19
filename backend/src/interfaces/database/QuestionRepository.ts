@@ -20,6 +20,7 @@ export class QuestionRepository extends IQuestionRepository {
       console.log("Questionデータを取った")
       return QuestionData
     } catch (error) {
+      console.log("findのエラー")
       console.log(error)
     }
   }

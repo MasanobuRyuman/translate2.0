@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-import {numcheck} from './Validations'
+import {numCheck,strCheck} from './Validations'
 
 const app = express()
 
@@ -28,10 +28,8 @@ app.use(cookieParser());
 app.use(cors())
 
 app.post('/api/signUp/', async (req:any, res) => {
-  console.log("signUpに入った")
-  console.log(req.body.data.username)
   const userController = new UserController(AppDataSource)
-  const username = req.body.data.username
+  const username = strCheck(req.body.data.username)
   const password = req.body.data.password
   const result = await userController.signUp(username, password)
   res.send(result)
@@ -47,21 +45,27 @@ app.post('/api/signIn/', async (req, res) => {
 
 app.get('/api/find/:id', async (req, res) => {
   const questionController = new QuestionController(AppDataSource)
-  const id = numcheck(Number(req.params.id))
+  const id = numCheck(Number(req.params.id))
   const result = await questionController.findQuestion(id)
   res.send(result)
 })
 
 app.post('/api/create/', async (req,res) => {
   const questionController = new QuestionController(AppDataSource)
-  const { userId, EN, JP, classId } = req.body.data
+  const userId = numCheck(req.body.data.userId)
+  const EN = req.body.data.EN
+  const JP = req.body.data.JP
+  const classId = numCheck(req.body.data.classId)
   const result = await questionController.createQuestion(userId, EN, JP, classId)
   res.send(result)
 })
 
 app.post('/api/update/', async (req) => {
   const questionController = new QuestionController(AppDataSource)
-  const { questionId, EN, JP, classId } = req.body.data
+  const questionId = numCheck(req.body.data.questionId)
+  const EN = req.body.data.EN
+  const JP = req.body.data.JP
+  const classId = numCheck(req.body.data.classId)
   const result = await questionController.updateQuestion(
     questionId,
     EN,
@@ -72,9 +76,7 @@ app.post('/api/update/', async (req) => {
 
 app.post('/api/delete', async (req) => {
   const questionController = new QuestionController(AppDataSource)
-  console.log("delete")
-  const { questionId } = req.body.data
-  console.log(questionId)
+  const questionId = numCheck(req.body.data.questionId)
   const result = await questionController.deleteQuestion(questionId)
 })
 

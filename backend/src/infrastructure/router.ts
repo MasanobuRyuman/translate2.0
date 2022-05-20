@@ -29,7 +29,7 @@ app.use(cors())
 
 app.post('/api/signUp/', async (req:any, res) => {
   const userController = new UserController(AppDataSource)
-  const username = strCheck(req.body.data.username)
+  const username = req.body.data.username
   const password = req.body.data.password
   const result = await userController.signUp(username, password)
   res.send(result)

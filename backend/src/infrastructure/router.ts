@@ -1,7 +1,5 @@
 import express = require('express')
 const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
-const session = require('cookie-session')
 import { AppDataSource } from './data-source'
 import { QuestionController } from '../interfaces/controllers/QuestionController'
 import { UserController } from '../interfaces/controllers/UserController'

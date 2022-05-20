@@ -17,7 +17,7 @@ AppDataSource.initialize()
       'Here you can setup and run express / fastify / any other framework.'
     )
   })
-  .catch((error) => console.log("typeOrmの初期化失敗"))
+  .catch((error) => console.log(error))
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());

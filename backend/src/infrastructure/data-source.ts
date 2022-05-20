@@ -10,11 +10,11 @@ require('dotenv').config()
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
-  host: '127.0.0.1',
+  host: process.env.HOST,
   port: 3306,
   username: process.env.USERNAME,
   password: process.env.PASSWORD,
-  database: 'translate',
+  database: process.env.DATABASE,
   synchronize: true,
   logging: false,
   entities: [Users, UserQuestions],

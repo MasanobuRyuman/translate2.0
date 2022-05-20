@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-import {numCheck,strCheck} from './Validations'
+import {numCheck} from './Validations'
 
 const app = express()
 

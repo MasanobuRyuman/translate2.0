@@ -1,9 +1,8 @@
 import axios from 'axios'
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import GoogleProvider from 'next-auth/providers/google'
 
-const apiURL = "http://translatestudy.herokuapp.com"
+const apiURL = "https://translatestudy.herokuapp.com"
 
 const options = {
   providers: [

@@ -9,6 +9,8 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
+import {numcheck} from './Validations'
+
 const app = express()
 
 AppDataSource.initialize()
@@ -47,7 +49,7 @@ app.post('/api/signIn/', async (req, res) => {
 
 app.get('/api/find/:id', async (req, res) => {
   const questionController = new QuestionController(AppDataSource)
-  const { id } = req.params
+  const id = numcheck(Number(req.params.id))
   const result = await questionController.findQuestion(id)
   res.send(result)
 })

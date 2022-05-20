@@ -13,7 +13,7 @@ export class QuestionController {
     this.questionRepository = new QuestionRepository(dbConnection)
   }
 
-  async findQuestion(id) {
+  async findQuestion(id:number) {
     const useCase = new FindQuestion(this.questionRepository)
     const questionSerializer = new QuestionSerializer()
     const result = await useCase.execute(id)

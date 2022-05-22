@@ -28,6 +28,7 @@ export const TestArea = (props: ITestAreaProps) => {
 
   const ChangeQuestion = () => {
     const listLength: number = props.questionData.length
+    if (listLength == 0) return
     const randomNumber = Math.floor(Math.random() * listLength)
     const nextQuestionData = props.questionData[randomNumber]
     console.log(nextQuestionData)

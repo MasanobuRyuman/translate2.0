@@ -1,5 +1,6 @@
-import { Box } from '@mui/material'
+/* eslint-disable react-hooks/exhaustive-deps */
 import Edit from '@mui/icons-material/Edit'
+import { Box } from '@mui/material'
 import { useState, useEffect } from 'react'
 
 import { IQuestion } from '../../../pages/api/questions'
@@ -24,7 +25,6 @@ export const TestArea = (props: ITestAreaProps) => {
 
   useEffect(() => {
     ChangeQuestion()
-    console.log(props.questionData)
   }, [])
 
   const ChangeQuestion = () => {

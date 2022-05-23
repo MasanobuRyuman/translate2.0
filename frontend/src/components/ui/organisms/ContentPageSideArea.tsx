@@ -12,9 +12,9 @@ import {
   DialogContent,
   DialogActions,
 } from '@mui/material'
+import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import { useState } from 'react'
-import { signOut } from 'next-auth/react'
 
 import { DefaultBox, DefaultButton, H4 } from '../atoms'
 
@@ -49,14 +49,14 @@ export const ContentPageSideArea = () => {
           display: {
             sm : "block",
             xs : "none"
-          }
+          },
         }}
       >
         <Box
           sx={{
             width: '90%',
             m: 'auto',
-            pt: 3,
+            pt: 10,
           }}
         >
           <Paper>
@@ -82,17 +82,17 @@ export const ContentPageSideArea = () => {
               }
             >
               <ListItem button>
-                <Link href='/translate'>
+                <Link href='/translate' passHref>
                   <ListItemText primary='翻訳' />
                 </Link>
               </ListItem>
               <ListItem button>
-                <Link href='/questionList'>
+                <Link href='/questionList' passHref>
                   <ListItemText primary='問題一覧' />
                 </Link>
               </ListItem>
               <ListItem button>
-                <Link href='/test'>
+                <Link href='/test' passHref>
                   <ListItemText primary='テスト' />
                 </Link>
               </ListItem>
@@ -131,7 +131,7 @@ export const ContentPageSideArea = () => {
               sm : "none",
               xs : "inline",
             },
-            mt: 1,
+            mt: 10,
             ml: 3,
           }}
         >
@@ -151,17 +151,17 @@ export const ContentPageSideArea = () => {
               aria-labelledby='nested-list-subheader'
           >
             <ListItem button>
-              <Link href='/translate'>
+              <Link href='/translate' passHref>
                 <ListItemText primary='翻訳' />
               </Link>
             </ListItem>
             <ListItem button>
-              <Link href='/questionList'>
+              <Link href='/questionList' passHref>
                 <ListItemText primary='問題一覧' />
               </Link>
             </ListItem>
             <ListItem button>
-              <Link href='/test'>
+              <Link href='/test' passHref>
                 <ListItemText primary='テスト' />
               </Link>
             </ListItem>

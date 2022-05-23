@@ -1,8 +1,8 @@
 import { Box } from '@mui/material'
 import React, { useState } from 'react'
 
-import { DefaultButton, DefaultTextArea, H4 } from '../atoms'
 import { CreateQuestion } from '../../../pages/api/questions'
+import { DefaultButton, DefaultTextArea, H4 } from '../atoms'
 
 interface ITranslateArea {
   englishTranslate: (EN: string) => Promise<{ result: any }>

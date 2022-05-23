@@ -37,6 +37,10 @@ export const TranslateArea = (props: ITranslateArea) => {
     setTranslateAreaValue(e?.currentTarget?.value)
   }
 
+  const setTranslatedValue = (e: any) => {
+    setResultAreaValue(e?.currentTarget?.value)
+  }
+
   const saveQuestion = () => {
     console.log('saveQuestion')
     let english: string
@@ -119,6 +123,7 @@ export const TranslateArea = (props: ITranslateArea) => {
             </H4>
             <DefaultTextArea
               value={resultAreaValue}
+              onChange={(e) => setTranslatedValue(e)} 
               sx={{
                 width: {
                   lg: 400,

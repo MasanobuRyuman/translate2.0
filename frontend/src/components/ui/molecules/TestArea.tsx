@@ -20,6 +20,7 @@ export const TestArea = (props: ITestAreaProps) => {
   const [question, setQuestion] = useState<string>('')
   const [answer, setAnswer] = useState<string>('')
   const [nowQuestionLanguage, setNowQuestionLanguage] = useState<string>('EN')
+  const [openAnswer,setOpenAnswer] = useState(false)
 
   useEffect(() => {
     ChangeQuestion()
@@ -44,6 +45,7 @@ export const TestArea = (props: ITestAreaProps) => {
       setQuestion(nextQuestionData.EN)
       setAnswer(nextQuestionData.JP)
     }
+    setOpenAnswer(false)
   }
 
   const ChangeQuestionLanguage = () => {
@@ -62,17 +64,25 @@ export const TestArea = (props: ITestAreaProps) => {
     setOpen(true)
   }
 
+  const displayAnswer = ()=> {
+    setOpenAnswer(true)
+  }
+
   return (
     <div>
       <Box>
         <Box sx={{
           display: "flex"
         }}>
-          <Box>
+          <Box sx={{
+            height: 200,
+          }}>
             <H4>問題</H4>
             <H3>{question}</H3>
             <H4>答え</H4>
-            <H3>{answer}</H3>
+            {
+              openAnswer && <H3>{answer}</H3>
+            }
           </Box>
           <Edit onClick={()=>handleClickOpen()} sx={{
             ml : 10,
@@ -92,6 +102,7 @@ export const TestArea = (props: ITestAreaProps) => {
           >
             <DefaultButton onClick={() => ChangeQuestionLanguage()}>切り替え</DefaultButton>
           </Box>
+          <DefaultButton onClick={() => displayAnswer()}>答え</DefaultButton>
           <Box
             sx={{
               ml: 2,

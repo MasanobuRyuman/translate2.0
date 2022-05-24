@@ -17,7 +17,7 @@ export const ClassTestArea = (props: ClassTestAreaProps) => {
       <Box
         sx={{
           width: {
-            lg: 800,
+            lg: 850,
             md: 600,
             sm: 400,
             xs: 300,

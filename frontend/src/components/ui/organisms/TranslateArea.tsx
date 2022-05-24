@@ -71,7 +71,7 @@ export const TranslateArea = (props: ITranslateArea) => {
           sx={{
             display: 'block',
             m: 'auto',
-            fontSize:20,
+            fontSize: 20,
           }}
         >
           入れ替え
@@ -148,10 +148,10 @@ export const TranslateArea = (props: ITranslateArea) => {
             display: 'block',
             m: 'auto',
             mt: {
-              md : 5,
+              md: 5,
               xs: 2,
             },
-            fontSize : 20,
+            fontSize: 20,
           }}
         >
           翻訳

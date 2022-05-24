@@ -4,9 +4,8 @@ import { Box } from '@mui/material'
 import { useState, useEffect } from 'react'
 
 import { IQuestion } from '../../../pages/api/questions'
-import { DefaultBox,DefaultButton,DefaultSubHeading, H3, H4 } from '../atoms'
+import { DefaultBox, DefaultButton, DefaultSubHeading, H3, H4 } from '../atoms'
 import { EditQuestionDialog } from './EditQuestionDialog'
-
 
 interface ITestAreaProps {
   questionData: IQuestion[]
@@ -80,52 +79,74 @@ export const TestArea = (props: ITestAreaProps) => {
           <Box
             sx={{
               height: 200,
-              ml : {
-                sm : 0,
-                xs :-3,
-              }
+              ml: {
+                sm: 0,
+                xs: -3,
+              },
             }}
           >
             <Box>
-              <DefaultSubHeading><H3 sx={{
-                textAlign:"center",
-                mt : -0.5,
-              }}>問題</H3></DefaultSubHeading>
-              <Box sx={{
-                width: {
-                  md :200,
-                  xs : 250,
-                },
-                mt: 2,
-                ml:3,
-              }}> 
-                <H3 sx={{
-                  overflowWrap: "break-word",
-                }}>{question}</H3> 
+              <DefaultSubHeading>
+                <H3
+                  sx={{
+                    textAlign: 'center',
+                    mt: -0.5,
+                  }}
+                >
+                  問題
+                </H3>
+              </DefaultSubHeading>
+              <Box
+                sx={{
+                  width: {
+                    md: 200,
+                    xs: 250,
+                  },
+                  mt: 2,
+                  ml: 3,
+                }}
+              >
+                <H3
+                  sx={{
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  {question}
+                </H3>
               </Box>
             </Box>
-            <Box sx={{
-              mt: 6,
-            }}>
-              <DefaultSubHeading><H3 sx={{
-                textAlign:"center",
-                mt : -0.5,
-              }}>答え</H3></DefaultSubHeading> 
+            <Box
+              sx={{
+                mt: 6,
+              }}
+            >
+              <DefaultSubHeading>
+                <H3
+                  sx={{
+                    textAlign: 'center',
+                    mt: -0.5,
+                  }}
+                >
+                  答え
+                </H3>
+              </DefaultSubHeading>
             </Box>
-            <Box sx={{
-              mt: 2,
-              ml: 3,
-            }}>
+            <Box
+              sx={{
+                mt: 2,
+                ml: 3,
+              }}
+            >
               {openAnswer && <H3>{answer}</H3>}
             </Box>
           </Box>
           <Edit
             onClick={() => handleClickOpen()}
             sx={{
-              width : 40,
-              height : 40,
-              position : "absolute",
-              left : "80%"
+              width: 40,
+              height: 40,
+              position: 'absolute',
+              left: '80%',
             }}
           />
         </Box>
@@ -139,37 +160,54 @@ export const TestArea = (props: ITestAreaProps) => {
           <Box
             sx={{
               ml: {
-                sm : 2,
-                xs : -2,
-              }
+                sm: 2,
+                xs: -2,
+              },
             }}
           >
-            <DefaultButton onClick={() => ChangeQuestionLanguage()} sx={{
-              fontSize: 20,
-              width :100,
-            }}>切り替え</DefaultButton>
+            <DefaultButton
+              onClick={() => ChangeQuestionLanguage()}
+              sx={{
+                fontSize: 20,
+                width: 100,
+              }}
+            >
+              切り替え
+            </DefaultButton>
           </Box>
-          <Box sx={{
-            display : "flex",
-            ml : {
-              md : "60%",
-              sm : "30%",
-              xs : "20%",
-            },
-          }}>
-            <DefaultButton onClick={() => displayAnswer()} sx={{
-              fontSize : 20,
-              width : 60,
-            }}>答え</DefaultButton>
+          <Box
+            sx={{
+              display: 'flex',
+              ml: {
+                md: '60%',
+                sm: '30%',
+                xs: '20%',
+              },
+            }}
+          >
+            <DefaultButton
+              onClick={() => displayAnswer()}
+              sx={{
+                fontSize: 20,
+                width: 60,
+              }}
+            >
+              答え
+            </DefaultButton>
             <Box
               sx={{
                 ml: 2,
               }}
             >
-              <DefaultButton onClick={() => ChangeQuestion()} sx={{
-                fontSize : 20,
-                width :100,
-              }}>次の問題</DefaultButton>
+              <DefaultButton
+                onClick={() => ChangeQuestion()}
+                sx={{
+                  fontSize: 20,
+                  width: 100,
+                }}
+              >
+                次の問題
+              </DefaultButton>
             </Box>
           </Box>
         </Box>
@@ -185,7 +223,3 @@ export const TestArea = (props: ITestAreaProps) => {
     </div>
   )
 }
-
-
-
-

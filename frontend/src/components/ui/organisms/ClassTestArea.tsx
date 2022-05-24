@@ -26,7 +26,6 @@ export const ClassTestArea = (props: ClassTestAreaProps) => {
           m: 'auto',
         }}
       >
-        
         <QuestionTabs
           class_1={<TestArea questionData={props.questionData.classId_1} />}
           class_2={<TestArea questionData={props.questionData.classId_2} />}

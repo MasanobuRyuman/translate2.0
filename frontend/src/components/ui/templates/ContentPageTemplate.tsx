@@ -7,26 +7,31 @@ interface IContentTemplateProps {
   children?: React.ReactNode
 }
 
-export const  ContentPageTemplate= (props: IContentTemplateProps) => {
+export const ContentPageTemplate = (props: IContentTemplateProps) => {
   return (
     <div>
-      <PageHeader />
-      <Box
-        sx={{
-          display: {
-            sm : 'flex',
-            xs : 'block',
-          }
-        }}
-      >
-        <ContentPageSideArea />
+      <Box>
+        <PageHeader />
         <Box
           sx={{
-            m: 'auto',
-            mt: 5,
+            display: {
+              sm: 'flex',
+              xs: 'block',
+            },
           }}
         >
-          {props.children}
+          <ContentPageSideArea />
+          <Box
+            sx={{
+              m: 'auto',
+              mt: {
+                sm: 13,
+                xs: 3,
+              },
+            }}
+          >
+            {props.children}
+          </Box>
         </Box>
       </Box>
     </div>

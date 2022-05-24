@@ -9,8 +9,8 @@ export const TopPageCatchCopy = () => {
       <Box
         sx={{
           width: {
-            sm : 600,
-            xs : 300,
+            sm: 600,
+            xs: 300,
           },
           m: 'auto',
         }}
@@ -18,10 +18,10 @@ export const TopPageCatchCopy = () => {
         <H1
           sx={{
             color: '#4D90CE',
-            textAlign: "center",
+            textAlign: 'center',
           }}
         >
-         翻訳 ✖️ 学習
+          翻訳 ✖️ 学習
         </H1>
         <Box>
           <Box

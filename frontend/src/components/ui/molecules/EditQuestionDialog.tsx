@@ -40,7 +40,6 @@ export const EditQuestionDialog = (props: IEditQuestionDialog) => {
   const [jp, setJp] = useState('')
   const [questionClass, setQuestionClass] = useState('')
 
-
   useEffect(() => {
     setEn(props.english)
     setJp(props.japanese)

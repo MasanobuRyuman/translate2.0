@@ -1,9 +1,10 @@
-import { Box } from '@mui/material'
+/* eslint-disable react-hooks/exhaustive-deps */
 import Edit from '@mui/icons-material/Edit'
+import { Box } from '@mui/material'
 import { useState, useEffect } from 'react'
 
 import { IQuestion } from '../../../pages/api/questions'
-import { DefaultButton, H3, H4 } from '../atoms'
+import { DefaultBox, DefaultButton, DefaultSubHeading, H3, H4 } from '../atoms'
 import { EditQuestionDialog } from './EditQuestionDialog'
 
 interface ITestAreaProps {
@@ -20,11 +21,10 @@ export const TestArea = (props: ITestAreaProps) => {
   const [question, setQuestion] = useState<string>('')
   const [answer, setAnswer] = useState<string>('')
   const [nowQuestionLanguage, setNowQuestionLanguage] = useState<string>('EN')
-  const [openAnswer,setOpenAnswer] = useState(false)
+  const [openAnswer, setOpenAnswer] = useState(false)
 
   useEffect(() => {
     ChangeQuestion()
-    console.log(props.questionData)
   }, [])
 
   const ChangeQuestion = () => {
@@ -64,51 +64,151 @@ export const TestArea = (props: ITestAreaProps) => {
     setOpen(true)
   }
 
-  const displayAnswer = ()=> {
+  const displayAnswer = () => {
     setOpenAnswer(true)
   }
 
   return (
     <div>
       <Box>
-        <Box sx={{
-          display: "flex"
-        }}>
-          <Box sx={{
-            height: 200,
-          }}>
-            <H4>問題</H4>
-            <H3>{question}</H3>
-            <H4>答え</H4>
-            {
-              openAnswer && <H3>{answer}</H3>
-            }
-          </Box>
-          <Edit onClick={()=>handleClickOpen()} sx={{
-            ml : 10,
-          }}/>
-        </Box>
-      
         <Box
           sx={{
             display: 'flex',
-            mt: 4,
           }}
         >
           <Box
             sx={{
-              ml: 2,
+              height: 200,
+              ml: {
+                sm: 0,
+                xs: -3,
+              },
             }}
           >
-            <DefaultButton onClick={() => ChangeQuestionLanguage()}>切り替え</DefaultButton>
+            <Box>
+              <DefaultSubHeading>
+                <H3
+                  sx={{
+                    textAlign: 'center',
+                    mt: -0.5,
+                  }}
+                >
+                  問題
+                </H3>
+              </DefaultSubHeading>
+              <Box
+                sx={{
+                  width: {
+                    md: 200,
+                    xs: 250,
+                  },
+                  mt: 2,
+                  ml: 3,
+                }}
+              >
+                <H3
+                  sx={{
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  {question}
+                </H3>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                mt: 6,
+              }}
+            >
+              <DefaultSubHeading>
+                <H3
+                  sx={{
+                    textAlign: 'center',
+                    mt: -0.5,
+                  }}
+                >
+                  答え
+                </H3>
+              </DefaultSubHeading>
+            </Box>
+            <Box
+              sx={{
+                mt: 2,
+                ml: 3,
+              }}
+            >
+              {openAnswer && <H3>{answer}</H3>}
+            </Box>
           </Box>
-          <DefaultButton onClick={() => displayAnswer()}>答え</DefaultButton>
+          <Edit
+            onClick={() => handleClickOpen()}
+            sx={{
+              width: 40,
+              height: 40,
+              position: 'absolute',
+              left: '80%',
+            }}
+          />
+        </Box>
+
+        <Box
+          sx={{
+            display: 'flex',
+            mt: 17,
+          }}
+        >
           <Box
             sx={{
-              ml: 2,
+              ml: {
+                sm: 2,
+                xs: -2,
+              },
             }}
           >
-            <DefaultButton onClick={() => ChangeQuestion()}>次の問題</DefaultButton>
+            <DefaultButton
+              onClick={() => ChangeQuestionLanguage()}
+              sx={{
+                fontSize: 20,
+                width: 100,
+              }}
+            >
+              切り替え
+            </DefaultButton>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              ml: {
+                md: '60%',
+                sm: '30%',
+                xs: '20%',
+              },
+            }}
+          >
+            <DefaultButton
+              onClick={() => displayAnswer()}
+              sx={{
+                fontSize: 20,
+                width: 60,
+              }}
+            >
+              答え
+            </DefaultButton>
+            <Box
+              sx={{
+                ml: 2,
+              }}
+            >
+              <DefaultButton
+                onClick={() => ChangeQuestion()}
+                sx={{
+                  fontSize: 20,
+                  width: 100,
+                }}
+              >
+                次の問題
+              </DefaultButton>
+            </Box>
           </Box>
         </Box>
       </Box>

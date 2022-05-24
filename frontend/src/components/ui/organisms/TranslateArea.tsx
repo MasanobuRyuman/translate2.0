@@ -1,8 +1,8 @@
 import { Box } from '@mui/material'
 import React, { useState } from 'react'
 
-import { DefaultButton, DefaultTextArea, H4 } from '../atoms'
 import { CreateQuestion } from '../../../pages/api/questions'
+import { DefaultButton, DefaultTextArea, H3 } from '../atoms'
 
 interface ITranslateArea {
   englishTranslate: (EN: string) => Promise<{ result: any }>
@@ -71,6 +71,7 @@ export const TranslateArea = (props: ITranslateArea) => {
           sx={{
             display: 'block',
             m: 'auto',
+            fontSize: 20,
           }}
         >
           入れ替え
@@ -78,19 +79,20 @@ export const TranslateArea = (props: ITranslateArea) => {
         <Box
           sx={{
             display: {
-              sm : 'flex',
-              xs : "block",
-            }
+              sm: 'flex',
+              xs: 'block',
+            },
+            mt: 5,
           }}
         >
           <Box>
-            <H4
+            <H3
               sx={{
                 textAlign: 'center',
               }}
             >
               {rightTranslateFiled}
-            </H4>
+            </H3>
             <DefaultTextArea
               value={translateAreaValue}
               onChange={(e) => setTranslateValue(e)}
@@ -101,10 +103,10 @@ export const TranslateArea = (props: ITranslateArea) => {
                   xs: 200,
                 },
                 height: {
-                  lg: 200,
+                  lg: 300,
                   xs: 150,
                 },
-                m:"auto",
+                m: 'auto',
               }}
             />
           </Box>
@@ -114,16 +116,16 @@ export const TranslateArea = (props: ITranslateArea) => {
               ml: 'auto',
             }}
           >
-            <H4
+            <H3
               sx={{
                 textAlign: 'center',
               }}
             >
               {leftTranslateFiled}
-            </H4>
+            </H3>
             <DefaultTextArea
               value={resultAreaValue}
-              onChange={(e) => setTranslatedValue(e)} 
+              onChange={(e) => setTranslatedValue(e)}
               sx={{
                 width: {
                   lg: 400,
@@ -131,10 +133,10 @@ export const TranslateArea = (props: ITranslateArea) => {
                   xs: 200,
                 },
                 height: {
-                  lg: 200,
+                  lg: 300,
                   xs: 150,
                 },
-                m : "auto",
+                m: 'auto',
               }}
             />
           </Box>
@@ -145,7 +147,11 @@ export const TranslateArea = (props: ITranslateArea) => {
           sx={{
             display: 'block',
             m: 'auto',
-            mt: 2,
+            mt: {
+              md: 5,
+              xs: 2,
+            },
+            fontSize: 20,
           }}
         >
           翻訳
@@ -156,6 +162,7 @@ export const TranslateArea = (props: ITranslateArea) => {
             display: 'block',
             m: 'auto',
             mt: 2,
+            fontSize: 20,
           }}
         >
           保存

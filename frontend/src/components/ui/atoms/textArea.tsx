@@ -6,7 +6,7 @@ interface IDefaultTextArea {
 }
 
 export const DefaultTextArea = styled('textarea')({
-  display:"block",
+  display: 'block',
   resize: 'none',
   width: 300,
   height: 200,

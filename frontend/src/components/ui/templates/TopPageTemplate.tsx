@@ -11,10 +11,12 @@ export const TopPageTemplate = (props: ITopPageTemplate) => {
   return (
     <div>
       <PageHeader />
-      <DefaultBox sx={{
-        width: "100%",
-        height: "100vh",
-      }}>
+      <DefaultBox
+        sx={{
+          width: '100%',
+          height: '100vh',
+        }}
+      >
         <Box
           sx={{
             width: '80%',

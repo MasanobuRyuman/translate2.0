@@ -12,23 +12,23 @@ import {
   DialogContent,
   DialogActions,
 } from '@mui/material'
+import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import { useState } from 'react'
-import { signOut } from 'next-auth/react'
 
 import { DefaultBox, DefaultButton, H4 } from '../atoms'
 
 export const ContentPageSideArea = () => {
   const [open, setOpen] = useState(false)
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const buttonMenuOpen = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const buttonMenuOpen = Boolean(anchorEl)
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
   const buttonMenuHandleClose = () => {
-    setAnchorEl(null);
-  };
-  
+    setAnchorEl(null)
+  }
+
   const handleClickOpen = () => {
     setOpen(true)
   }
@@ -47,16 +47,16 @@ export const ContentPageSideArea = () => {
           },
           height: '100vh',
           display: {
-            sm : "block",
-            xs : "none"
-          }
+            sm: 'block',
+            xs: 'none',
+          },
         }}
       >
         <Box
           sx={{
             width: '90%',
             m: 'auto',
-            pt: 3,
+            pt: 10,
           }}
         >
           <Paper>
@@ -82,17 +82,17 @@ export const ContentPageSideArea = () => {
               }
             >
               <ListItem button>
-                <Link href='/translate'>
+                <Link href='/translate' passHref>
                   <ListItemText primary='翻訳' />
                 </Link>
               </ListItem>
               <ListItem button>
-                <Link href='/questionList'>
+                <Link href='/questionList' passHref>
                   <ListItemText primary='問題一覧' />
                 </Link>
               </ListItem>
               <ListItem button>
-                <Link href='/test'>
+                <Link href='/test' passHref>
                   <ListItemText primary='テスト' />
                 </Link>
               </ListItem>
@@ -121,24 +121,24 @@ export const ContentPageSideArea = () => {
       </DefaultBox>
       <div>
         <DefaultButton
-          id="basic-button"
+          id='basic-button'
           aria-controls={buttonMenuOpen ? 'basic-menu' : undefined}
-          aria-haspopup="true"
+          aria-haspopup='true'
           aria-expanded={buttonMenuOpen ? 'true' : undefined}
           onClick={handleClick}
           sx={{
             display: {
-              sm : "none",
-              xs : "inline",
+              sm: 'none',
+              xs: 'inline',
             },
-            mt: 1,
+            mt: 10,
             ml: 3,
           }}
         >
           メニュー
         </DefaultButton>
         <Menu
-          id="basic-menu"
+          id='basic-menu'
           anchorEl={anchorEl}
           open={buttonMenuOpen}
           onClose={buttonMenuHandleClose}
@@ -146,22 +146,19 @@ export const ContentPageSideArea = () => {
             'aria-labelledby': 'basic-button',
           }}
         >
-          <List
-              component='nav'
-              aria-labelledby='nested-list-subheader'
-          >
+          <List component='nav' aria-labelledby='nested-list-subheader'>
             <ListItem button>
-              <Link href='/translate'>
+              <Link href='/translate' passHref>
                 <ListItemText primary='翻訳' />
               </Link>
             </ListItem>
             <ListItem button>
-              <Link href='/questionList'>
+              <Link href='/questionList' passHref>
                 <ListItemText primary='問題一覧' />
               </Link>
             </ListItem>
             <ListItem button>
-              <Link href='/test'>
+              <Link href='/test' passHref>
                 <ListItemText primary='テスト' />
               </Link>
             </ListItem>

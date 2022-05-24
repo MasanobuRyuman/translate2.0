@@ -1,5 +1,5 @@
-import { createTheme } from '@mui/material/styles'
 import { red } from '@mui/material/colors'
+import { createTheme } from '@mui/material/styles'
 
 const theme = createTheme({
   breakpoints: {
@@ -16,7 +16,7 @@ const theme = createTheme({
       main: '#666666',
     },
     secondary: {
-      main: '#19857b',
+      main: '#4169e1',
     },
     error: {
       main: red.A400,

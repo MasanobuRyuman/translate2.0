@@ -27,7 +27,7 @@ export const QuestionList = (props: IQuestionListProps) => {
 
   const columns: GridColDef[] = [
     { field: 'EN', headerName: '英語', flex: 1 },
-    { field: 'JP', headerName: '日本語', flex: 1  },
+    { field: 'JP', headerName: '日本語', flex: 1 },
     {
       field: 'editBtn',
       headerName: '編集',
@@ -46,9 +46,9 @@ export const QuestionList = (props: IQuestionListProps) => {
       <Box
         sx={{
           width: {
-            lg:800,
+            lg: 800,
             md: 600,
-            sm: 600
+            sm: 600,
           },
           height: 500,
         }}

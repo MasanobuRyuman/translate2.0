@@ -8,7 +8,7 @@ export const DefaultButton = styled('button')({
 
 export const TopPageLoginButton = styled('button')({
   color: '#666666',
-  backgroundColor: '#FFFFFF',
+  backgroundColor: '#FFFF66',
   borderColor: '#666666',
-  fontSize: 50,
+  borderRadius : 5,
 })

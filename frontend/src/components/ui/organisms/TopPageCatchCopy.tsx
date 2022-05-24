@@ -15,14 +15,6 @@ export const TopPageCatchCopy = () => {
           m: 'auto',
         }}
       >
-        <H1
-          sx={{
-            color: '#4D90CE',
-            textAlign: 'center',
-          }}
-        >
-          翻訳 ✖️ 学習
-        </H1>
         <Box>
           <Box
             sx={{

@@ -99,7 +99,7 @@ export const TestArea = (props: ITestAreaProps) => {
               <Box
                 sx={{
                   width: {
-                    md: 200,
+                    md: 400,
                     xs: 250,
                   },
                   mt: 2,

@@ -78,9 +78,9 @@ app.post('/api/update/', async (req) => {
 })
 
 app.post('/api/delete', async (req) => {
+  console.log("削除に入った")
   const questionController = new QuestionController(AppDataSource)
   const questionId = numCheck(req.body.data.questionId)
-  console.log("削除に入った")
   console.log(questionId)
   const result = await questionController.deleteQuestion(questionId)
 })

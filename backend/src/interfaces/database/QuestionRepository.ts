@@ -18,6 +18,7 @@ export class QuestionRepository extends IQuestionRepository {
         },
       })
       console.log("Questionデータを取った")
+      console.log(QuestionData)
       return QuestionData
     } catch (error) {
       console.log("findのエラー")
@@ -41,6 +42,9 @@ export class QuestionRepository extends IQuestionRepository {
 
   async update(questionId: number, EN: string, JP: string, classId: number) {
     try {
+      console.log("問題の削除")
+      console.log(questionId)
+      console.log(classId)
       await this.DataSource.getRepository(UserQuestions).update(
         { questionId: questionId },
         { EN: EN, JP: JP, classId: classId }
@@ -51,6 +55,8 @@ export class QuestionRepository extends IQuestionRepository {
   }
   async delete(questionId: number) {
     try {
+      console.log("問題の削除")
+      console.log(questionId)
       await this.DataSource.getRepository(UserQuestions).delete({
         questionId: questionId,
       })

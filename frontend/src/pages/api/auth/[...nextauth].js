@@ -2,7 +2,7 @@ import axios from 'axios'
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-const apiURL = 'http://localhost:3001'
+const apiURL = 'https://translatestudy.herokuapp.com/'
 
 const options = {
   providers: [

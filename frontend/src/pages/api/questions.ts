@@ -15,7 +15,7 @@ export interface IClassQuestion {
   classId_3: IQuestion[]
 }
 
-const apiURL = 'http://localhost:3001'
+const apiURL = 'https://translatestudy.herokuapp.com/'
 
 export const FetchQuestionData = async (id: number) => {
   const result = await axios.get(`${apiURL}/api/find/${id}`)

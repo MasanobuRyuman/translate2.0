@@ -61,15 +61,15 @@ export const EditQuestionDialog = (props: IEditQuestionDialog) => {
     setJp(e?.currentTarget?.value)
   }
 
-  const updateQuestion = () => {
+  const updateQuestion = async () => {
     const questionType: keyof IClassList = questionClass
     const classId = classList[questionType]
-    UpdateQuestion(props.questionId, en, jp, classId)
+    await UpdateQuestion(props.questionId, en, jp, classId)
     location.reload()
   }
 
-  const deleteQuestion = () => {
-    DeleteQuestion(props.questionId)
+  const deleteQuestion = async () => {
+    await DeleteQuestion(props.questionId)
     location.reload()
   }
   return (

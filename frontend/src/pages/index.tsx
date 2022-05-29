@@ -10,7 +10,6 @@ const Home: NextPage = () => {
   const { data: session, status } = useSession()
   const router = useRouter()
   useEffect(() => {
-    console.log(status)
     if (status === 'authenticated') {
       router.push('/translate')
     }

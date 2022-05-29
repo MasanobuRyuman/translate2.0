@@ -17,10 +17,9 @@ export class QuestionRepository extends IQuestionRepository {
           userId: Id,
         },
       })
-      console.log("Questionデータを取った")
+      console.log(QuestionData)
       return QuestionData
     } catch (error) {
-      console.log("findのエラー")
       console.log(error)
     }
   }
@@ -33,7 +32,6 @@ export class QuestionRepository extends IQuestionRepository {
         JP: JP,
         classId: classId,
       })
-      console.log(test)
     } catch (error) {
       console.log(error)
     }

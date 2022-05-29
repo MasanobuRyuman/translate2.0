@@ -19,7 +19,6 @@ export class SignIn {
       success: success,
       userData: userData,
     }
-    console.log(data)
     return data
   }
 }

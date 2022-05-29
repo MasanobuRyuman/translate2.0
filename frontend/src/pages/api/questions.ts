@@ -28,11 +28,9 @@ export const CreateQuestion = async (
   japanese: string,
   classId: number,
 ) => {
-  console.log('hiatta')
   const result = await axios.post(`${apiURL}/api/create`, {
     data: { userId: userId, EN: english, JP: japanese, classId: classId },
   })
-  console.log(result)
 }
 
 export const UpdateQuestion = async (
@@ -41,11 +39,13 @@ export const UpdateQuestion = async (
   japanese: string,
   classId: number,
 ) => {
-  await axios.post(`${apiURL}/api/update`, {
+  const result = await axios.post(`${apiURL}/api/update`, {
     data: { questionId: questionId, EN: english, JP: japanese, classId: classId },
   })
+  return result
 }
 
 export const DeleteQuestion = async (questionId: number) => {
-  await axios.post(`${apiURL}/api/delete`, { data: { questionId: questionId } })
+  const result = await axios.post(`${apiURL}/api/delete`, { data: { questionId: questionId } })
+  return result
 }

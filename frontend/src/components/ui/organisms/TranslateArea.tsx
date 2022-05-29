@@ -42,7 +42,6 @@ export const TranslateArea = (props: ITranslateArea) => {
   }
 
   const saveQuestion = () => {
-    console.log('saveQuestion')
     let english: string
     let japanese: string
     if (rightTranslateFiled == '英語') {

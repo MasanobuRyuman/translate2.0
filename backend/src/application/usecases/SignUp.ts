@@ -18,7 +18,6 @@ export class SignUp {
       success: success,
       userData: userData,
     }
-    console.log(data)
     return data
   }
 }

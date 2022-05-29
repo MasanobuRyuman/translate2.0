@@ -71,9 +71,6 @@ app.post('/api/update/', async (req, res) => {
   const EN = req.body.data.EN
   const JP = req.body.data.JP
   const classId = numCheck(req.body.data.classId)
-  console.log('更新に入った')
-  console.log(questionId)
-  console.log(classId)
   const result = await questionController.updateQuestion(
     questionId,
     EN,
@@ -84,10 +81,8 @@ app.post('/api/update/', async (req, res) => {
 })
 
 app.post('/api/delete', async (req, res) => {
-  console.log('削除に入った')
   const questionController = new QuestionController(AppDataSource)
   const questionId = numCheck(req.body.data.questionId)
-  console.log(questionId)
   const result = await questionController.deleteQuestion(questionId)
   res.send(result)
 })

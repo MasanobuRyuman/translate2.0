@@ -32,7 +32,6 @@ export const TestArea = (props: ITestAreaProps) => {
     if (listLength == 0) return
     const randomNumber = Math.floor(Math.random() * listLength)
     const nextQuestionData = props.questionData[randomNumber]
-    console.log(nextQuestionData)
     setQuestionData(nextQuestionData)
     setQuestionId(nextQuestionData.questionId)
     setJapanese(nextQuestionData.JP)

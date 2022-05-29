@@ -29,7 +29,7 @@ export const QuestionTabs = (props: IQuestionTabsProps) => {
             centered
           >
             <Tab label='分からない' value='1' />
-            <Tab label='少し分かる' value='2' />
+            <Tab label='大体分かる' value='2' />
             <Tab label='分かる' value='3' />
           </TabList>
         </Box>

@@ -13,11 +13,11 @@ export class QuestionController {
     this.questionRepository = new QuestionRepository(dbConnection)
   }
 
-  async findQuestion(id:number) {
+  async findQuestion(id: number) {
     const useCase = new FindQuestion(this.questionRepository)
     const questionSerializer = new QuestionSerializer()
     const result = await useCase.execute(id)
-    return (questionSerializer.serialize(result))
+    return questionSerializer.serialize(result)
   }
 
   async createQuestion(id: number, EN: string, JP: string, classId: number) {

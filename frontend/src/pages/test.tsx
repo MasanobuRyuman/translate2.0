@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { CircularProgress } from '@mui/material'
 
 import { TestPageTemplate } from '../components/ui/templates'
 import { FetchQuestionData, IClassQuestion } from './api/questions'
@@ -23,7 +24,26 @@ const test: NextPage = () => {
     const temp = await FetchQuestionData(id)
     setQuestionData(temp)
   }
-  return <div>{questionData && <TestPageTemplate questionData={questionData} />}</div>
+  return (
+    <div>
+      {questionData ? (
+        <TestPageTemplate questionData={questionData} />
+      ) : (
+        <CircularProgress
+          color='secondary'
+          size={100}
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            webkitTransform: 'translate(-50%, -50%)',
+            msTransform: 'translate(-50%, -50%)',
+          }}
+        />
+      )}
+    </div>
+  )
 }
 
 export default test

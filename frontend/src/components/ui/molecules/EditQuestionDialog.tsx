@@ -65,10 +65,12 @@ export const EditQuestionDialog = (props: IEditQuestionDialog) => {
     const questionType: keyof IClassList = questionClass
     const classId = classList[questionType]
     await UpdateQuestion(props.questionId, en, jp, classId)
+    location.reload()
   }
 
   const deleteQuestion = async () => {
     await DeleteQuestion(props.questionId)
+    location.reload()
   }
   return (
     <div>

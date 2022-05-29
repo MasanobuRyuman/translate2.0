@@ -2,13 +2,11 @@ import {
   Box,
   Paper,
   Menu,
-  MenuItem,
   List,
   ListSubheader,
   ListItem,
   ListItemText,
   Dialog,
-  DialogTitle,
   DialogContent,
   DialogActions,
 } from '@mui/material'
@@ -81,21 +79,21 @@ export const ContentPageSideArea = () => {
                 </ListSubheader>
               }
             >
-              <ListItem button>
-                <Link href='/translate' passHref>
+              <Link href='/translate' passHref>
+                <ListItem button>
                   <ListItemText primary='翻訳' />
-                </Link>
-              </ListItem>
-              <ListItem button>
-                <Link href='/questionList' passHref>
+                </ListItem>
+              </Link>
+              <Link href='/questionList' passHref>
+                <ListItem button>
                   <ListItemText primary='問題一覧' />
-                </Link>
-              </ListItem>
-              <ListItem button>
-                <Link href='/test' passHref>
+                </ListItem>
+              </Link>
+              <Link href='/test' passHref>
+                <ListItem button>
                   <ListItemText primary='テスト' />
-                </Link>
-              </ListItem>
+                </ListItem>
+              </Link>
               <ListItem button>
                 <ListItemText onClick={() => handleClickOpen()} primary='ログアウト' />
               </ListItem>

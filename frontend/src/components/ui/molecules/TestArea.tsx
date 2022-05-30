@@ -101,6 +101,7 @@ export const TestArea = (props: ITestAreaProps) => {
                     md: 400,
                     xs: 250,
                   },
+                  height: 50,
                   mt: 2,
                   ml: 3,
                 }}

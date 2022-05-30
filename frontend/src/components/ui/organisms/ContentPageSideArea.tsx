@@ -94,9 +94,11 @@ export const ContentPageSideArea = () => {
                   <ListItemText primary='テスト' />
                 </ListItem>
               </Link>
-              <ListItem button>
-                <ListItemText onClick={() => handleClickOpen()} primary='ログアウト' />
-              </ListItem>
+              <a onClick={() => handleClickOpen()}>
+                <ListItem button>
+                  <ListItemText primary='ログアウト' />
+                </ListItem>
+              </a>
             </List>
           </Paper>
         </Box>
@@ -145,24 +147,27 @@ export const ContentPageSideArea = () => {
           }}
         >
           <List component='nav' aria-labelledby='nested-list-subheader'>
-            <ListItem button>
-              <Link href='/translate' passHref>
+            <Link href='/translate' passHref>
+              <ListItem button>
                 <ListItemText primary='翻訳' />
-              </Link>
-            </ListItem>
-            <ListItem button>
-              <Link href='/questionList' passHref>
+              </ListItem>
+            </Link>
+            <Link href='/questionList' passHref>
+              <ListItem button>
                 <ListItemText primary='問題一覧' />
-              </Link>
-            </ListItem>
-            <ListItem button>
-              <Link href='/test' passHref>
+              </ListItem>
+            </Link>
+
+            <Link href='/test' passHref>
+              <ListItem button>
                 <ListItemText primary='テスト' />
-              </Link>
-            </ListItem>
-            <ListItem button>
-              <ListItemText onClick={() => handleClickOpen()} primary='ログアウト' />
-            </ListItem>
+              </ListItem>
+            </Link>
+            <a onClick={() => handleClickOpen()}>
+              <ListItem button>
+                <ListItemText primary='ログアウト' />
+              </ListItem>
+            </a>
           </List>
         </Menu>
       </div>

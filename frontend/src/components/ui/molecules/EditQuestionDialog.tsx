@@ -43,10 +43,11 @@ export const EditQuestionDialog = (props: IEditQuestionDialog) => {
   useEffect(() => {
     setEn(props.english)
     setJp(props.japanese)
+    console.log(props.class)
     setQuestionClass(props.class)
   }, [props.open])
 
-  const handleClose = (question: any) => {
+  const handleClose = () => {
     props.setOpen(false)
   }
 

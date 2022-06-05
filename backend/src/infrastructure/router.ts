@@ -1,10 +1,8 @@
 import express = require('express')
-const passport = require('passport')
 import { AppDataSource } from './data-source'
 import { QuestionController } from '../interfaces/controllers/QuestionController'
 import { UserController } from '../interfaces/controllers/UserController'
 const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
 const cors = require('cors')
 
 import { numCheck } from './Validations'
@@ -21,10 +19,7 @@ AppDataSource.initialize()
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(passport.initialize())
 
-app.use(passport.initialize())
-app.use(cookieParser())
 app.use(cors())
 
 app.post('/api/signUp/', async (req: any, res) => {

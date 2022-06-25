@@ -8,7 +8,7 @@ const options = {
   providers: [
     CredentialsProvider({
       id: 'signIn',
-      name: 'ログイン',
+      name: 'existing account',
       credentials: {
         username: { label: 'Username', type: 'text' },
         password: { label: 'Password', type: 'password' },
@@ -27,7 +27,7 @@ const options = {
     }),
     CredentialsProvider({
       id: 'signUp',
-      name: '新規登録',
+      name: 'new Account',
       credentials: {
         username: { label: 'Username', type: 'text' },
         password: { label: 'Password', type: 'password' },

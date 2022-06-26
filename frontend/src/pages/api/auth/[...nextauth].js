@@ -27,7 +27,7 @@ const options = {
     }),
     CredentialsProvider({
       id: 'signUp',
-      name: 'new Account',
+      name: 'new account',
       credentials: {
         username: { label: 'Username', type: 'text' },
         password: { label: 'Password', type: 'password' },

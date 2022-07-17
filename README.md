@@ -5,7 +5,7 @@
 URL:https://translate2-0.vercel.app/
 
 ## 使用技術
-#### ・Clean Architecture
+- Clean Architecture
 - Atomic Design
 - TypeScript
 - Express
